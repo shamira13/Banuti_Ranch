@@ -2,7 +2,8 @@ import { Button } from 'primereact/button';
 import React, {useRef, useState} from 'react';    
 import { confirmPopup } from 'primereact/confirmpopup';
 import { Dropdown } from 'primereact/dropdown';
-function AddUser(){
+
+function AddCase(){
     const [dropdownItem, setDropdownItem] = useState(null);
     const dropdownItems = [
         { name: 'Male', code: 'option 1' },
@@ -60,4 +61,4 @@ function AddUser(){
 </div>
 );
 };
-export default AddUser;
+export default AddCase;

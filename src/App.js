@@ -13,18 +13,15 @@ import AppInlineProfile from './AppInlineProfile';
 import Dashboard from './pages/Dashboard';
 import Clients from './pages/Clients';
 import Roles from './pages/Roles';
-import Requisitions from './pages/Requisitions';
+import Cases from './pages/Cases';
 import Users from './pages/SystemUsers';
 import PrimeReact from 'primereact/api';
 import { Tooltip } from 'primereact/tooltip';
-
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
 import './App.scss';
-import UserAccounts from './pages/Users';
 import SystemUsers from './pages/SystemUsers';
-import AddUser from './pages/AddUser';
 import ViewClient from './pages/ViewClient';
 
 const App = () => {
@@ -56,9 +53,9 @@ const App = () => {
         { path: '/Users', parent: 'Users', label: 'Users' },
         { path: '/Clients', parent: 'Clients', label: 'Clients' },
         { path: '/Roles', parent: 'Roles', label: 'Roles' },
-        { path: '/AddUser', parent: 'AddUser', label: 'Add User' },
         { path: '/ViewClient', parent: 'ViewClient', label: 'View Client' },
         { path: '/SystemUsers', parent: 'SystemUsers', label: 'System Users' },
+        { path: '/Cases', parent: 'Cases', label: 'Cases' },
     ];
 
     const menu = [
@@ -71,7 +68,7 @@ const App = () => {
             { label: 'Clients', icon: 'pi pi-fw pi-shopping-cart', to: '/Clients' },
             { label: 'System Users', icon: 'pi pi-fw pi-credit-card', to: '/SystemUsers' },
             { label: 'Roles', icon: 'pi pi-fw pi-list', to: '/Roles' },
-            //{ label: 'Log Out', icon: 'pi pi-fw pi-sign-in', to: '/login' },
+            { label: 'Cases', icon: 'pi pi-fw pi-sign-in', to: '/Cases' },
            
         ]
         }
@@ -311,11 +308,11 @@ const App = () => {
                         <Route path="/" element={<Dashboard />} />
                         <Route path="/Users" element={<Users />} />
                         <Route path="/Clients" element={<Clients />} />
-                        <Route path="/Requisitions" element={<Requisitions />} />
+                        <Route path="/Cases" element={<Cases />} />
                         <Route path="/SystemUsers" element={<SystemUsers />} />
-                        <Route path="/Roles" element={<Roles />} />
-                        <Route path="/AddUser" element={<AddUser />} />
+                        <Route path="/Roles" element={<Roles />} />                       
                         <Route path="/ViewClient" element={<ViewClient />} />
+                        
                     </Routes>
                 </div>
 
