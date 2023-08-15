@@ -22,7 +22,7 @@ import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
 import './App.scss';
 import SystemUsers from './pages/SystemUsers';
-import ViewClient from './pages/ViewClient';
+import ViewClient from './components/ViewClient';
 
 const App = () => {
     const [menuActive, setMenuActive] = useState(false);
@@ -50,7 +50,7 @@ const App = () => {
 
     const breadcrumb = [
         { path: '/', parent: 'Dashboard', label: 'Dashboard' },
-        { path: '/Users', parent: 'Users', label: 'Users' },
+        //{ path: '/Users', parent: 'Users', label: 'Users' },
         { path: '/Clients', parent: 'Clients', label: 'Clients' },
         { path: '/Roles', parent: 'Roles', label: 'Roles' },
         { path: '/ViewClient', parent: 'ViewClient', label: 'View Client' },
@@ -64,7 +64,7 @@ const App = () => {
             icon: 'pi pi-fw pi-home',
             items: [
                 { label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/' },
-            { label: 'Users', icon: 'pi pi-fw pi-users', to: '/Users' },
+            //{ label: 'Users', icon: 'pi pi-fw pi-users', to: '/Users' },
             { label: 'Clients', icon: 'pi pi-fw pi-shopping-cart', to: '/Clients' },
             { label: 'System Users', icon: 'pi pi-fw pi-credit-card', to: '/SystemUsers' },
             { label: 'Roles', icon: 'pi pi-fw pi-list', to: '/Roles' },
@@ -289,7 +289,7 @@ const App = () => {
             <div className={menuContainerClassName} onClick={onMenuClick}>
                 <div className="layout-menu-logo">
                     <button className="p-link" onClick={() => navigate('/')}>                        
-                        <img id="layout-menu-logo" src="assets/layout/images/pahappa.png" style={{height: '70%'}} library="babylon-layout" alt="babylon-logo" />
+                        <img id="layout-menu-logo" src="assets/layout/images/logo-white.png" style={{height: '70%'}} library="babylon-layout" alt="babylon-logo" />
                     </button>
                 </div>
                 <div className="layout-menu-wrapper">

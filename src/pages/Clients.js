@@ -6,7 +6,7 @@ import { InputText } from 'primereact/inputtext';
 import data from '../assets/flags/clients.json';
 import { Link } from 'react-router-dom';
 import { Dialog } from 'primereact/dialog';
-import ViewClient from './ViewClient';
+import ViewClient from '../components/ViewClient';
 
 const Clients = () => {
     const [displayBasic, setDisplayBasic] = useState(false);
@@ -14,7 +14,7 @@ const Clients = () => {
 
         <div className="layout-dashboard" >
             <div className="col-12 lg:col-6 xl:col-2" style={{ marginLeft: '90%' }}>
-                <Link to="/"> <Button className='button-success' label="Back" icon="pi pi-chevron-left" style={{ backgroundColor: 'green' }}  ></Button></Link>
+                <Link to="/"> <Button className='button-success' label="Back" icon="pi pi-chevron-left" style={{ backgroundColor: 'deep purple' }}  ></Button></Link>
             </div>
             <div className="grid" style={{ backgroundColor: 'white', marginBottom: '2%' }} >
                 <div className="col-12 lg:col-6 xl:col-6"  >

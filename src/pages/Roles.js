@@ -31,7 +31,7 @@ function Roles() {
     };
     return (
         <><div class="flex justify-content-end flex-wrap card-container green-container">
-            <Button type="button" label="Back" className="mr-2 mb-2" style={{ backgroundColor: '#239B47', marginLeft: '90%', marginBottom: '18%' }}></Button>
+            <Button type="button" label="Back" className="mr-2 mb-2" style={{ backgroundColor: 'deep purple', marginLeft: '90%', marginBottom: '18%' }}></Button>
         </div>
             <div className='grid ' style={{ backgroundColor: "white" }}>
                 <div className="col-12 lg:col-6 xl:col-6"  >
@@ -40,13 +40,13 @@ function Roles() {
                     </div>
                 </div>
                 <div className="col-12 lg:col-6 xl:col-2" >
-                    <Button label="Search" icon="pi pi-search" className="mr-2 mb-2" style={{ backgroundColor: 'green' }}></Button>
+                    <Button label="Search" icon="pi pi-search" className="mr-2 mb-2" style={{ backgroundColor: 'deep purple' }}></Button>
                 </div>
                 <div className="col-12 lg:col-6 xl:col-2" >
-                    <Button type="button" label="Export" icon="pi pi-arrow-circle-up" onClick={() => { navigate("/AddUser") }} style={{ backgroundColor: "#239B47" }} />
+                    <Button type="button" label="Export" icon="pi pi-arrow-circle-up" onClick={() => { navigate("/AddUser") }} style={{ backgroundColor: "deep purple" }} />
                 </div>
                 <div className="col-12 lg:col-6 xl:col-2" >
-                    <Button type="button" label="Add New" icon="pi pi-plus" onClick={() => setDisplayBasic(true)} style={{ backgroundColor: "#239B47" }} />
+                    <Button type="button" label="Add New" icon="pi pi-plus" onClick={() => setDisplayBasic(true)} style={{ backgroundColor: "deep purple" }} />
                 </div>
 
             </div>
@@ -116,7 +116,7 @@ function Roles() {
                     <Column field="Role" header="Role" style={{ flexGrow: 1, flexBasis: '100px' }}></Column>
                     <Column field="description" header="Description" style={{ flexGrow: 1, flexBasis: '200px' }}></Column>
                     <Column field="permissions" header="Permissions" style={{ flexGrow: 1, flexBasis: '200px' }}></Column>
-                    <Column field="action" header="Action" style={{ flexGrow: 1, flexBasis: '200px' }} body={() => <><><Button type="button" icon="pi pi-pencil" onClick={() => setDisplayBasic(true)} style={{ backgroundColor: "#239B47" }}></Button></><Button type="button" icon="pi pi-trash" className="p-button-danger" onClick={() => setDisplayConfirmation(true)}></Button></>}></Column>
+                    <Column field="action" className='flex gap-2' header="Action" style={{ flexGrow: 1, flexBasis: '200px' }} body={() => <><><Button type="button" icon="pi pi-pencil" onClick={() => setDisplayBasic(true)} style={{ backgroundColor: "#239B47" }}></Button></><Button type="button" icon="pi pi-trash" className="p-button-danger" onClick={() => setDisplayConfirmation(true)}></Button></>}></Column>
                 </DataTable>
                 <Dialog header="Confirmation" visible={displayConfirmation} onHide={() => setDisplayConfirmation(false)} style={{ width: '350px' }} modal footer={confirmationDialogFooter}>
                     <div className="flex align-items-center justify-content-center">

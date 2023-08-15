@@ -50,7 +50,7 @@ function SystemUsers() {
     return (
         <div className='flex flex-column gap-2'>
             <div class="flex justify-content-end flex-wrap card-container green-container">
-                <Button type="button" label="Back" className="mr-2 mb-2" style={{ backgroundColor: '#239B47', marginLeft: '90%', marginBottom: '18%' }}></Button>
+                <Button type="button" label="Back" className="mr-2 mb-2" style={{ backgroundColor: 'amber', marginLeft: '90%', marginBottom: '18%' }}></Button>
             </div>
 
             <div className='grid ' style={{ backgroundColor: "white" }}>
@@ -60,13 +60,13 @@ function SystemUsers() {
                     </div>
                 </div>
                 <div className="col-12 lg:col-6 xl:col-2" >
-                    <Button label="Search" icon="pi pi-search" className="mr-2 mb-2" style={{ backgroundColor: 'green' }}></Button>
+                    <Button label="Search" icon="pi pi-search" className="mr-2 mb-2" style={{ backgroundColor: 'amber' }}></Button>
                 </div>
                 <div className="col-12 lg:col-6 xl:col-2" >
-                    <Button type="button" label="Export" icon="pi pi-arrow-circle-up" onClick={() => { navigate("/AddUser") }} style={{ backgroundColor: "#239B47" }} />
+                    <Button type="button" label="Export" icon="pi pi-arrow-circle-up" onClick={() => { navigate("/AddUser") }} style={{ backgroundColor: "amber" }} />
                 </div>
                 <div className="col-12 lg:col-6 xl:col-2" >
-                    <Button type="button" label="Add New" icon="pi pi-plus" onClick={() => setDisplayBasic(true)} style={{ backgroundColor: "#239B47" }} />
+                    <Button type="button" label="Add New" icon="pi pi-plus" onClick={() => setDisplayBasic(true)} style={{ backgroundColor: "deep purple" }} />
                 </div>
 
             </div>

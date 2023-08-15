@@ -5,7 +5,6 @@ import { Column } from 'primereact/column';
 import { InputText } from 'primereact/inputtext';
 import { Link } from 'react-router-dom';
 import { Dialog } from 'primereact/dialog';
-import { Checkbox } from 'primereact/checkbox';
 import data from '../assets/cases.json';
 import { Dropdown } from 'primereact/dropdown';
 
@@ -24,7 +23,7 @@ const Cases = () => {
 
         <div className="layout-dashboard" >
             <div className="col-12 lg:col-6 xl:col-2" style={{ marginLeft: '90%' }}>
-                <Link to="/"> <Button label="Back" icon="pi pi-chevron-left" style={{ backgroundColor: 'orange', borderBlockColor: 'red' }} className="mr-2 mb-2" ></Button></Link>
+                <Link to="/"> <Button label="Back" icon="pi pi-chevron-left" style={{ backgroundColor: 'deep purple'}} className="mr-2 mb-2" ></Button></Link>
             </div>
 
 
@@ -34,10 +33,10 @@ const Cases = () => {
 
 
                         <div className="col-12 lg:col-6 xl:col-2" >
-                            <Button label="New Case Type" icon="pi pi-plus" className="mr-2 mb-2" style={{ backgroundColor: 'blue' }} onClick={() => setDisplayBasic(true)}></Button>
+                            <Button label="New Case Type" icon="pi pi-plus" className="mr-2 mb-2" style={{ backgroundColor: ' deep purple' }} onClick={() => setDisplayBasic(true)}></Button>
                         </div>
                         <div className="col-12 lg:col-6 xl:col-2" >
-                            <Button type="button" label="Export" icon="pi pi-arrow-circle-up" style={{ backgroundColor: 'blue' }} />
+                            <Button type="button" label="Export" icon="pi pi-arrow-circle-up" style={{ backgroundColor: 'deep purple' }} />
                         </div>
 
                     </div>
@@ -50,13 +49,13 @@ const Cases = () => {
                     </div>
                 </div>
                 <div className="col-12 lg:col-6 xl:col-2" >
-                    <Button label="Search" icon="pi pi-search" className="mr-2 mb-2" style={{ backgroundColor: 'blue' }} ></Button>
+                    <Button label="Search" icon="pi pi-search" className="mr-2 mb-2" style={{ backgroundColor: 'deep purple' }} ></Button>
                 </div>
                 <div className="col-12 lg:col-6 xl:col-2" >
-                    <Button label="New Case" icon="pi pi-plus" className="mr-2 mb-2" style={{ backgroundColor: 'blue' }} onClick={() => setDisplay(true)} ></Button>
+                    <Button label="New Case" icon="pi pi-plus" className="mr-2 mb-2" style={{ backgroundColor: 'deep purple' }} onClick={() => setDisplay(true)} ></Button>
                 </div>
                 <div className="col-12 lg:col-6 xl:col-2" >
-                    <Button label="New Case Note" icon="pi pi-plus" className="mr-2 mb-2" style={{ backgroundColor: 'blue' }} onClick={() => setBasic(true)} ></Button>
+                    <Button label="New Case Note" icon="pi pi-plus" className="mr-2 mb-2" style={{ backgroundColor: 'deep purple' }} onClick={() => setBasic(true)} ></Button>
                 </div>
             </div>
             <div className="col-12 lg:col-6 xl:col-2" >
