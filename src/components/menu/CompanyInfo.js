@@ -16,6 +16,7 @@ const CompanyInfo = () => {
                 <p>0707811116 or 077781116</p>
                 <p>Muteesa II Road, Ntinda</p>
                 <p>Assignee: Shamira Naiga</p>
+                <p>Referral Source: Website</p>
             </Card>
         </div>
     );

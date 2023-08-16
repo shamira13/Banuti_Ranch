@@ -23,6 +23,7 @@ import 'primeflex/primeflex.css';
 import './App.scss';
 import SystemUsers from './pages/SystemUsers';
 import ViewClient from './components/ViewClient';
+import ViewCase from './pages/ViewCase';
 
 const App = () => {
     const [menuActive, setMenuActive] = useState(false);
@@ -54,8 +55,13 @@ const App = () => {
         { path: '/Clients', parent: 'Clients', label: 'Clients' },
         { path: '/Roles', parent: 'Roles', label: 'Roles' },
         { path: '/ViewClient', parent: 'ViewClient', label: 'View Client' },
+        { path: '/ViewCase', parent: 'ViewCase', label: 'View Case' },
         { path: '/SystemUsers', parent: 'SystemUsers', label: 'System Users' },
         { path: '/Cases', parent: 'Cases', label: 'Cases' },
+        {path: '/menu', parent:'CompanyInfo', label:'Company Information'},
+        { path: '/menu/contact', parent: 'Contact', label: 'Contact' },
+        { path: '/menu/communications', parent: 'Communications', label: 'Communications' },
+        { path: '/menu/productlines', parent: 'ProductLines', label: 'Product Lines' },
     ];
 
     const menu = [
@@ -69,7 +75,9 @@ const App = () => {
             { label: 'System Users', icon: 'pi pi-fw pi-credit-card', to: '/SystemUsers' },
             { label: 'Roles', icon: 'pi pi-fw pi-list', to: '/Roles' },
             { label: 'Cases', icon: 'pi pi-fw pi-sign-in', to: '/Cases' },
-           
+            // { label: 'Contact', icon: 'pi pi-fw pi-sign-in', to: '/Contact' },
+            // { label: 'Communications', icon: 'pi pi-fw pi-sign-in', to: '/Communications' },
+            // { label: 'Product Lines', icon: 'pi pi-fw pi-sign-in', to: '/ProductLines' },
         ]
         }
     ];
@@ -311,8 +319,8 @@ const App = () => {
                         <Route path="/Cases" element={<Cases />} />
                         <Route path="/SystemUsers" element={<SystemUsers />} />
                         <Route path="/Roles" element={<Roles />} />                       
-                        <Route path="/ViewClient" element={<ViewClient />} />
-                        
+                        <Route path="/ViewClient" element={<ViewClient />} />  
+                        <Route path="/ViewCase" element={<ViewCase />} />                       
                     </Routes>
                 </div>
 

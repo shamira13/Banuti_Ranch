@@ -194,7 +194,7 @@ const Cases = () => {
                             <Column field="account" header="Client Account" ></Column>
                             <Column field="status" header="Status" ></Column>
                             <Column field="priority" header="Priority" ></Column>
-                            <Column field="options" header="Actions" body={<><Link to={"/Clients"} style={{ color: 'green' }}>View</Link><p></p>      <Link to={"/Clients"} style={{ color: 'red' }}>Manage</Link></>} >
+                            <Column field="options" header="Actions" body={<><Link to={"/ViewCase"} style={{ color: 'green' }}>View</Link><p></p></>} >
 
                             </Column>
                         </DataTable>

@@ -1,14 +1,9 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Button } from 'primereact/button';
-import data from '../assets/flags/clients.json';
 import { Link } from 'react-router-dom';
 import { TabMenu } from 'primereact/tabmenu';
 import { Menu } from 'primereact/menu';
-import Users from '../pages/Users';
-import Dashboard from '../pages/Dashboard';
 import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
-import Roles from '../pages/Roles';
-import { Fieldset } from 'primereact/fieldset';
 import CompanyInfo from './menu/CompanyInfo';
 import Contact from './menu/Contact';
 import Communications from './menu/Communications';
@@ -19,11 +14,11 @@ const ViewClient = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const menu = useRef(null);
-    
+
     const wizardItems = [
 
         { label: 'Company Information', command: () => navigate('/menu') },
-        { label: 'Contact Person', command: () => navigate('/menu/Contact') },
+        { label: 'Contact Person', command: () => navigate('/menu/contact') },
         { label: 'Product Lines', command: () => navigate('/menu/productlines') },
         { label: 'Communications', command: () => navigate('/menu/communications') }
     ];
@@ -61,7 +56,7 @@ const ViewClient = () => {
                 <div className="col-12 xl:col-12">
 
                     <div className="card card-w-title">
-                       
+
                         <TabMenu model={wizardItems} activeIndex={activeIndex} onTabChange={(e) => setActiveIndex(e.index)} />
                         <Routes>
                             <Route exact path={'/'} element={<CompanyInfo />} />
