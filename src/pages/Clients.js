@@ -6,10 +6,16 @@ import { InputText } from 'primereact/inputtext';
 import data from '../assets/flags/clients.json';
 import { Link } from 'react-router-dom';
 import { Dialog } from 'primereact/dialog';
-import ViewClient from '../components/ViewClient';
+import { Dropdown } from 'primereact/dropdown';
+import MenuDemo from './MenuDemo';
 
 const Clients = () => {
     const [displayBasic, setDisplayBasic] = useState(false);
+    const [dropdownItem, setDropdownItem] = useState(null);
+    const dropdownItems = [
+        { name: 'Male', code: 'option 1' },
+        { name: 'Female', code: 'option 2' }
+    ];
     return (
 
         <div className="layout-dashboard" >
@@ -33,7 +39,7 @@ const Clients = () => {
             </div>
             <div className="col-12 lg:col-6 xl:col-2" >
 
-                <Dialog header="New User" visible={displayBasic} style={{ width: '30vw' }} onHide={() => setDisplayBasic(false)}>
+                <Dialog header="New Client" visible={displayBasic} style={{ width: '60vw' }} onHide={() => setDisplayBasic(false)}>
                     <div className="col-12">
                         <div className="card">
 
@@ -45,50 +51,53 @@ const Clients = () => {
 
                                 <div className="field col-12 md:col-6 ">
                                     <label htmlFor="firstname2">Category</label>
-                                    <InputText id="firstname2" type="text" />
+                                    <Dropdown id="state" value={dropdownItem} onChange={(e) => setDropdownItem(e.value)} options={dropdownItems} optionLabel="name" ></Dropdown>
                                 </div>
-                                <div className="field col-12">
+                                <div className="field col-6">
                                     <label htmlFor="firstname2">Company Location</label>
                                     <InputText id="firstname2" type="text" />
                                 </div>
-                                <div className="field col-12">
+                                <div className="field col-6">
                                     <label htmlFor="firstname2">Company Email Address</label>
                                     <InputText id="firstname2" type="text" />
                                 </div>
-                                <div className="field col-12">
+                                <div className="field col-6">
                                     <label htmlFor="firstname2">Telephone Number</label>
                                     <InputText id="firstname2" type="text" />
                                 </div>
-                                <div className="field col-12">
+                                <div className="field col-12 md:col-6 ">
                                     <label htmlFor="firstname2">Products</label>
-                                    <InputText id="firstname2" type="text" />
+                                    <Dropdown id="state" value={dropdownItem} onChange={(e) => setDropdownItem(e.value)} options={dropdownItems} optionLabel="name" ></Dropdown>
                                 </div>
-                                <div className="field col-12">
-                                    <label htmlFor="firstname2">Source</label>
-                                    <InputText id="firstname2" type="text" />
+                                <div className="field col-12 md:col-6 ">
+                                    <label htmlFor="firstname2">Sources</label>
+                                    <Dropdown id="state" value={dropdownItem} onChange={(e) => setDropdownItem(e.value)} options={dropdownItems} optionLabel="name" ></Dropdown>
                                 </div>
-                                <div className="field col-12">
+                                <div className="field col-6">
                                     <label htmlFor="firstname2">Contact Person Name</label>
                                     <InputText id="firstname2" type="text" />
                                 </div>
-                                <div className="field col-12">
+                                <div className="field col-6">
                                     <label htmlFor="firstname2">Contact Person Phone</label>
                                     <InputText id="firstname2" type="text" />
                                 </div>
-                                <div className="field col-12">
+                                <div className="field col-6">
                                     <label htmlFor="firstname2">Contact Person Email </label>
                                     <InputText id="firstname2" type="text" />
                                 </div>
-                                <div className="field col-12">
+                                <div className="field col-12 md:col-6 ">
                                     <label htmlFor="firstname2">Assignee</label>
-                                    <InputText id="firstname2" type="text" />
+                                    <Dropdown id="state" value={dropdownItem} onChange={(e) => setDropdownItem(e.value)} options={dropdownItems} optionLabel="name" ></Dropdown>
                                 </div>
-                                <div className="field col-12 md:col-6">
-                                    <Button label="Save" icon="pi pi-save" className="mr-2 mb-2" style={{ backgroundColor: 'green', borderBlockColor: 'green' }}></Button>
-                                </div>
-                                <div className="field col-12 md:col-6">
-                                    <Button label="Cancel" icon="pi pi-times" className="mr-2 mb-2" style={{ backgroundColor: 'red', borderBlockColor: 'red' }}></Button>
-                                </div>
+
+                            </div>
+                        </div>
+                        <div class="flex justify-content-center " >
+                            <div className="field col-12 md:col-6" >
+                                <Button label="Save" icon="pi pi-save" className="mr-2 mb-2" style={{ backgroundColor: 'green', borderBlockColor: 'green' }}></Button>
+                            </div>
+                            <div className="field col-12 md:col-6" >
+                                <Button label="Cancel" icon="pi pi-times" className="mr-2 mb-2" style={{ backgroundColor: 'red', borderBlockColor: 'red' }}></Button>
                             </div>
                         </div>
                     </div>
@@ -108,10 +117,10 @@ const Clients = () => {
                             <Column field="companyEmail" header="Company Email Address" ></Column>
                             <Column field="addedBy" header="Added By" ></Column>
                             <Column field="source" header="Source" ></Column>
-                            <Column field="options" header="Options" 
-                            body={<>
-                            <Link to={"/ViewClient"} style={{ color: 'green' }}><p>Manage Client</p> </Link>
-                            </>} >
+                            <Column field="options" header="Options"
+                                body={<>
+                                    <Link to={"/menu"} style={{ color: 'green' }}><p>Manage Client</p> </Link>
+                                </>} >
 
                             </Column>
                         </DataTable>

@@ -9,14 +9,22 @@ import data from '../assets/flags/systemusers.json';
 import { Sidebar } from 'primereact/sidebar';
 import { confirmPopup } from 'primereact/confirmpopup';
 import { Dropdown } from 'primereact/dropdown';
+import { Checkbox } from 'primereact/checkbox';
 
 function SystemUsers() {
 
     const [displayBasic, setDisplayBasic] = useState(false);
-
+    const [checkboxValue, setCheckboxValue] = useState([]);
     const [displayConfirmation, setDisplayConfirmation] = useState(false);
     const navigate = useNavigate();
 
+    const onCheckboxChange = (e) => {
+        let selectedValue = [...checkboxValue];
+        if (e.checked) selectedValue.push(e.value);
+        else selectedValue.splice(selectedValue.indexOf(e.value), 1);
+
+        setCheckboxValue(selectedValue);
+    };
     const confirmationDialogFooter = (
         <>
             <Button type="button" label="No" icon="pi pi-times" onClick={() => setDisplayConfirmation(false)} className="p-button-text" />
@@ -71,41 +79,83 @@ function SystemUsers() {
 
             </div>
             <div className="col-12 lg:col-6 xl:col-2" >
-                <Dialog header="New User" visible={displayBasic} style={{ width: '30vw' }} onHide={() => setDisplayBasic(false)}  >
+                <Dialog header="New User" visible={displayBasic} style={{ width: '70vw' }} onHide={() => setDisplayBasic(false)}  >
                     <div className="col-12">
                         <div className="card">
-                        <div className="field col-12">
-                                <label for="clientid">Username</label>
-                                <input id="clientid" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
-                            </div>
-                            <div className="field col-12">
-                                <label for="clientname">First Name</label>
-                                <input id="clientname" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
-                            </div>
-                            <div className="field col-12">
-                                <label for="location">Last Name</label>
-                                <input id="location" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
-                            </div>
-                            <div className="field col-12">
-                                <label for="contact">Contact</label>
-                                <input id="contact" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
-                            </div>
-                            <div className="field col-12 md:col-3">
-                                <label htmlFor="state">Gender</label>
-                                <Dropdown id="state" value={dropdownItem} onChange={(e) => setDropdownItem(e.value)} options={dropdownItems} optionLabel="name" placeholder="Select One"></Dropdown>
-                            </div>
+                            <div className="p-fluid formgrid grid">
+                                <div className="field col-4">
+                                    <label for="clientid">Username</label>
+                                    <input id="clientid" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
+                                </div>
+                                <div className="field col-12 md:col-4">
+                                    <label for="clientname">First Name</label>
+                                    <input id="clientname" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
+                                </div>
+                                <div className="field col-12 md:col-4">
+                                    <label for="location">Last Name</label>
+                                    <input id="location" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
+                                </div>
+                                <div className="field col-6">
+                                    <label for="location">Email Address</label>
+                                    <input id="location" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
+                                </div>
+                                <div className="field col-6">
+                                    <label for="contact">Contact Number</label>
+                                    <input id="contact" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
+                                </div>
+                                <div className="field col-12 md:col-4">
+                                    <label htmlFor="state">Gender</label>
+                                    <Dropdown id="state" value={dropdownItem} onChange={(e) => setDropdownItem(e.value)} options={dropdownItems} optionLabel="name" placeholder="Select One"></Dropdown>
+                                </div>
 
-                            <div className="field col-12">
-                                <label for="action">Password</label>
-                                <input id="action" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
+                                <div className="field col-12 md:col-4">
+                                    <label for="action">Password</label>
+                                    <input id="action" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
+                                </div>
+                                <div className="field col-12 md:col-4">
+                                    <label for="action">Confirm Password</label>
+                                    <input id="action" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
+                                </div>
+                                <div className="field col-12 md:col-12 ">
+                                    <label htmlFor="firstname2">Roles</label>
+
+                                </div>
+
+                                <div className="grid">
+                                    <div className="field col-12 md:col-6">
+                                        <div className="field-checkbox">
+                                            <Checkbox inputId="checkOption1" name="option" value="Chicago" checked={checkboxValue.indexOf('Chicago') !== -1} onChange={onCheckboxChange} />
+                                            <label htmlFor="checkOption1">Export Clients</label>
+                                        </div>
+                                    </div>
+                                    <div className="col-12 md:col-6">
+                                        <div className="field-checkbox">
+                                            <Checkbox inputId="checkOption2" name="option" value="Los Angeles" checked={checkboxValue.indexOf('Los Angeles') !== -1} onChange={onCheckboxChange} />
+                                            <label htmlFor="checkOption2">Edit Clients</label>
+                                        </div>
+                                    </div>
+                                    <div className="col-12 md:col-6">
+                                        <div className="field-checkbox">
+                                            <Checkbox inputId="checkOption3" name="option" value="New York" checked={checkboxValue.indexOf('New York') !== -1} onChange={onCheckboxChange} />
+                                            <label htmlFor="checkOption3">Delete Clients</label>
+                                        </div>
+                                    </div>
+                                    <div className="col-12 md:col-6">
+                                        <div className="field-checkbox">
+                                            <Checkbox inputId="checkOption3" name="option" value="New York" checked={checkboxValue.indexOf('New York') !== -1} onChange={onCheckboxChange} />
+                                            <label htmlFor="checkOption3">View Clients</label>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
-                            <div class="flex justify-content-center " >
+                        </div>
+                        <div class="flex justify-content-center " >
                             <div className="field col-12 md:col-6" >
                                 <Button label="Save" icon="pi pi-save" className="mr-2 mb-2" style={{ backgroundColor: 'green', borderBlockColor: 'green' }}></Button>
                             </div>
                             <div className="field col-12 md:col-6" >
                                 <Button label="Cancel" icon="pi pi-times" className="mr-2 mb-2" style={{ backgroundColor: 'red', borderBlockColor: 'red' }}></Button>
-                            </div>
                             </div>
                         </div>
                     </div>

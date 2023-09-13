@@ -1,10 +1,19 @@
 import React, { useState } from 'react';
 import { classNames } from 'primereact/utils';
-import { RadioButton } from 'primereact/radiobutton';
-import { InputSwitch } from 'primereact/inputswitch';
+import { InputText } from 'primereact/inputtext';
+import { Checkbox } from 'primereact/checkbox';
 
 const AppConfig = (props) => {
     const [themeColor, setThemeColor] = useState('blue');
+    const [checkboxValue, setCheckboxValue] = useState([]);
+
+    const onCheckboxChange = (e) => {
+        let selectedValue = [...checkboxValue];
+        if (e.checked) selectedValue.push(e.value);
+        else selectedValue.splice(selectedValue.indexOf(e.value), 1);
+
+        setCheckboxValue(selectedValue);
+    };
 
     const componentThemes = [
         { name: 'Amber Accent', file: 'amber', color: '#FFC107' },
@@ -94,62 +103,49 @@ const AppConfig = (props) => {
     return (
         <div id="layout-config">
             <button type="button" id="layout-config-button" className="layout-config-button p-link" onClick={onConfigButtonClick}>
-                <i className="pi pi-cog"></i>
+                <i className="pi pi-plus"></i>
             </button>
             <div className={configClassName} onClick={props.onConfigClick}>
-                <h5>Menu Mode</h5>
-                <div className="field-radiobutton">
-                    <RadioButton name="menuMode" value="static" checked={props.menuMode === 'static'} inputId="mode1" onChange={props.onMenuModeChange}></RadioButton>
-                    <label htmlFor="mode1">Static</label>
-                </div>
-                <div className="field-radiobutton">
-                    <RadioButton name="menuMode" value="overlay" checked={props.menuMode === 'overlay'} inputId="mode2" onChange={props.onMenuModeChange}></RadioButton>
-                    <label htmlFor="mode2">Overlay</label>
-                </div>
-                <div className="field-radiobutton">
-                    <RadioButton name="menuMode" value="horizontal" checked={props.menuMode === 'horizontal'} inputId="mode3" onChange={props.onMenuModeChange}></RadioButton>
-                    <label htmlFor="mode4">Horizontal</label>
-                </div>
-                <div className="field-radiobutton">
-                    <RadioButton name="menuMode" value="slim" checked={props.menuMode === 'slim'} inputId="mode4" onChange={props.onMenuModeChange}></RadioButton>
-                    <label htmlFor="mode4">Slim</label>
+
+                <h5>New Role</h5>
+                <div className="field col-12 md:col-12 ">
+                    <label htmlFor="firstname2">Name</label>
+                    <InputText id="firstname2" type="text" />
                 </div>
 
-                <h5>Menu Color</h5>
-                <div className="field-radiobutton">
-                    <RadioButton name="colorScheme" value={true} checked={props.isDarkMenu} inputId="menu_color1" onChange={props.onMenuColorChange}></RadioButton>
-                    <label htmlFor="menu_color1">Dark</label>
+                <div className="field col-12">
+                    <label htmlFor="firstname2">Description</label>
+                    <textarea id="address" type="text" rows="4" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"></textarea>
                 </div>
-                <div className="field-radiobutton">
-                    <RadioButton name="colorScheme" value={false} checked={!props.isDarkMenu} inputId="menu_color2" onChange={props.onMenuColorChange}></RadioButton>
-                    <label htmlFor="menu_color2">Light</label>
+                <div className="field col-12 md:col-12 ">
+                    <label htmlFor="firstname2">Permissions</label>
                 </div>
-
-                <h5>Input Style</h5>
-                <div className="field-radiobutton">
-                    <RadioButton inputId="input_outlined" name="inputstyle" value="outlined" checked={props.inputStyle === 'outlined'} onChange={(e) => props.onInputStyleChange(e.value)} />
-                    <label htmlFor="input_outlined">Outlined</label>
-                </div>
-                <div className="field-radiobutton">
-                    <RadioButton inputId="input_filled" name="inputstyle" value="filled" checked={props.inputStyle === 'filled'} onChange={(e) => props.onInputStyleChange(e.value)} />
-                    <label htmlFor="input_filled">Filled</label>
-                </div>
-
-                <h5>Ripple Effect</h5>
-                <InputSwitch checked={props.rippleActive} onChange={props.onRippleChange} />
-
-                <h5>User Profile</h5>
-                <div className="field-radiobutton">
-                    <RadioButton name="profileMode" value="inline" checked={props.profileMode === 'inline'} disabled={props.menuMode === 'horizontal'} inputId="profile_mode1" onChange={props.onProfileChange}></RadioButton>
-                    <label htmlFor="profile_mode1">Inline</label>
-                </div>
-                <div className="field-radiobutton">
-                    <RadioButton name="profileMode" value="popup" checked={props.profileMode === 'popup'} disabled={props.menuMode === 'horizontal'} inputId="profile_mode2" onChange={props.onProfileChange}></RadioButton>
-                    <label htmlFor="profile_mode2">Popup</label>
-                </div>
-
-                <h5>Themes</h5>
-                {componentThemesElement}
+                <div className="grid">                                    
+                                    <div className="col-12 md:col-6">
+                                        <div className="field-checkbox">
+                                            <Checkbox inputId="checkOption1" name="option" value="Chicago" checked={checkboxValue.indexOf('Chicago') !== -1} onChange={onCheckboxChange} />
+                                            <label htmlFor="checkOption1">Export Clients</label>
+                                        </div>
+                                    </div>
+                                    <div className="col-12 md:col-6">
+                                        <div className="field-checkbox">
+                                            <Checkbox inputId="checkOption2" name="option" value="Los Angeles" checked={checkboxValue.indexOf('Los Angeles') !== -1} onChange={onCheckboxChange} />
+                                            <label htmlFor="checkOption2">Edit Clients</label>
+                                        </div>
+                                    </div>
+                                    <div className="col-12 md:col-6">
+                                        <div className="field-checkbox">
+                                            <Checkbox inputId="checkOption3" name="option" value="New York" checked={checkboxValue.indexOf('New York') !== -1} onChange={onCheckboxChange} />
+                                            <label htmlFor="checkOption3">Delete Clients</label>
+                                        </div>
+                                    </div>
+                                    <div className="col-12 md:col-6">
+                                        <div className="field-checkbox">
+                                            <Checkbox inputId="checkOption3" name="option" value="New York" checked={checkboxValue.indexOf('New York') !== -1} onChange={onCheckboxChange} />
+                                            <label htmlFor="checkOption3">View Clients</label>
+                                        </div>
+                                    </div>
+                                </div>
             </div>
         </div>
     );

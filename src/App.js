@@ -22,12 +22,13 @@ import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
 import './App.scss';
 import SystemUsers from './pages/SystemUsers';
-import ViewClient from './components/ViewClient';
+import MenuDemo from './pages/MenuDemo';
 import ViewCase from './pages/ViewCase';
+import CaseDemo from './components/menu/CaseDemo';
 
 const App = () => {
     const [menuActive, setMenuActive] = useState(false);
-    const [menuMode, setMenuMode] = useState('static');
+    const [menuMode, setMenuMode] = useState('slim');
     const [darkMenu, setDarkMenu] = useState(false);
     const [overlayMenuActive, setOverlayMenuActive] = useState(false);
     const [topbarMenuActive, setTopbarMenuActive] = useState(false);
@@ -54,32 +55,47 @@ const App = () => {
         //{ path: '/Users', parent: 'Users', label: 'Users' },
         { path: '/Clients', parent: 'Clients', label: 'Clients' },
         { path: '/Roles', parent: 'Roles', label: 'Roles' },
-        { path: '/ViewClient', parent: 'ViewClient', label: 'View Client' },
+        { path: '/MenuDemo', parent: 'Clients', label: 'View Client' },
         { path: '/ViewCase', parent: 'ViewCase', label: 'View Case' },
         { path: '/SystemUsers', parent: 'SystemUsers', label: 'System Users' },
         { path: '/Cases', parent: 'Cases', label: 'Cases' },
-        {path: '/menu', parent:'CompanyInfo', label:'Company Information'},
-        { path: '/menu/contact', parent: 'Contact', label: 'Contact' },
-        { path: '/menu/communications', parent: 'Communications', label: 'Communications' },
-        { path: '/menu/productlines', parent: 'ProductLines', label: 'Product Lines' },
+        { path: '/menu', parent: 'UI Kit', label: 'Company Information' },
+        { path: '/menu/seat', parent: 'UI Kit', label: 'Contact Person' },
+        { path: '/menu/payment', parent: 'UI Kit', label: 'Product Lines' },
+        { path: '/menu/confirmation', parent: 'UI Kit', label: 'Communications' },
+        { path: '/menu/case', parent: 'UI Kit', label: 'Cases' },
     ];
 
     const menu = [
         {
-            label: 'Menu',
+            label: 'Home Page',
             icon: 'pi pi-fw pi-home',
+            items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/' }]
+        },
+        {
+            label: 'Accounts',
+            icon: 'pi pi-fw pi-user',
             items: [
-                { label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/' },
-            //{ label: 'Users', icon: 'pi pi-fw pi-users', to: '/Users' },
             { label: 'Clients', icon: 'pi pi-fw pi-shopping-cart', to: '/Clients' },
             { label: 'System Users', icon: 'pi pi-fw pi-credit-card', to: '/SystemUsers' },
-            { label: 'Roles', icon: 'pi pi-fw pi-list', to: '/Roles' },
-            { label: 'Cases', icon: 'pi pi-fw pi-sign-in', to: '/Cases' },
-            // { label: 'Contact', icon: 'pi pi-fw pi-sign-in', to: '/Contact' },
-            // { label: 'Communications', icon: 'pi pi-fw pi-sign-in', to: '/Communications' },
-            // { label: 'Product Lines', icon: 'pi pi-fw pi-sign-in', to: '/ProductLines' },
         ]
-        }
+        },
+        {
+            label: 'Client Support',
+            icon: 'pi pi-fw pi-shield',
+            items: [
+                { label: 'Cases', icon: 'pi pi-fw pi-sign-in', to: '/Cases' },
+            ]
+        },
+        {
+            label: 'System Settings',
+            icon: 'pi pi-fw pi-cog',
+            items: [
+              { label: 'Roles', icon: 'pi pi-fw pi-list', to: '/Roles' },
+            ]
+        },
+       
+       
     ];
 
     useEffect(() => {
@@ -284,15 +300,17 @@ const App = () => {
             <Tooltip ref={copyTooltipRef} target=".block-action-copy" position="bottom" content="Copied to clipboard" event="focus" />
 
             <AppTopbar
-                topbarMenuActive={topbarMenuActive}
-                activeTopbarItem={activeTopbarItem}
-                onMenuButtonClick={onMenuButtonClick}
-                onTopbarMenuButtonClick={onTopbarMenuButtonClick}
-                onTopbarItemClick={onTopbarItemClick}
-                isHorizontal={isHorizontal()}
-                profileMode={profileMode}
+                // topbarMenuActive={topbarMenuActive}
+                // activeTopbarItem={activeTopbarItem}
+                // onMenuButtonClick={onMenuButtonClick}
+                // onTopbarMenuButtonClick={onTopbarMenuButtonClick}
+                // onTopbarItemClick={onTopbarItemClick}
+                // isHorizontal={isHorizontal()}
+                // profileMode={profileMode}
                 isMobile={isMobile}
+                
             />
+            
 
             <div className={menuContainerClassName} onClick={onMenuClick}>
                 <div className="layout-menu-logo">
@@ -309,7 +327,7 @@ const App = () => {
             </div>
 
             <div className="layout-main">
-                <AppBreadcrumb meta={meta} />
+                {/* <AppBreadcrumb meta={meta} /> */}
 
                 <div className="layout-content">
                     <Routes>
@@ -319,7 +337,7 @@ const App = () => {
                         <Route path="/Cases" element={<Cases />} />
                         <Route path="/SystemUsers" element={<SystemUsers />} />
                         <Route path="/Roles" element={<Roles />} />                       
-                        <Route path="/ViewClient" element={<ViewClient />} />  
+                        <Route path="/menu/*" element={<MenuDemo />} /> 
                         <Route path="/ViewCase" element={<ViewCase />} />                       
                     </Routes>
                 </div>

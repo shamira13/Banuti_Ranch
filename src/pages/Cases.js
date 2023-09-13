@@ -22,9 +22,7 @@ const Cases = () => {
     return (
 
         <div className="layout-dashboard" >
-            <div className="col-12 lg:col-6 xl:col-2" style={{ marginLeft: '90%' }}>
-                <Link to="/"> <Button label="Back" icon="pi pi-chevron-left" style={{ backgroundColor: 'deep purple'}} className="mr-2 mb-2" ></Button></Link>
-            </div>
+
 
 
             <div className="col-12">
@@ -37,6 +35,9 @@ const Cases = () => {
                         </div>
                         <div className="col-12 lg:col-6 xl:col-2" >
                             <Button type="button" label="Export" icon="pi pi-arrow-circle-up" style={{ backgroundColor: 'deep purple' }} />
+                        </div>
+                        <div className="col-12 lg:col-6 xl:col-2" >
+                            <Link to="/"> <Button label="Back" icon="pi pi-chevron-left" style={{ backgroundColor: 'deep purple' }} className="mr-2 mb-2" ></Button></Link>
                         </div>
 
                     </div>
@@ -59,17 +60,17 @@ const Cases = () => {
                 </div>
             </div>
             <div className="col-12 lg:col-6 xl:col-2" >
-                <Dialog header="New Case Type" visible={displayBasic} style={{ width: '30vw' }} onHide={() => setDisplayBasic(false)}  >
+                <Dialog header="New Case Type" visible={displayBasic} style={{ width: '60vw' }} onHide={() => setDisplayBasic(false)}  >
                     <div className="col-12">
                         <div className="card">
 
                             <div className="p-fluid formgrid grid">
-                                <div className="field col-12 md:col-12 ">
+                                <div className="field col-12 md:col-6 ">
                                     <label htmlFor="firstname2">Name</label>
                                     <InputText id="firstname2" type="text" />
                                 </div>
 
-                                <div className="field col-12 md:col-12 ">
+                                <div className="field col-12 md:col-6 ">
                                     <label htmlFor="firstname2">Code</label>
                                     <InputText id="firstname2" type="text" />
                                 </div>
@@ -78,7 +79,10 @@ const Cases = () => {
                                     <textarea id="address" type="text" rows="4" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"></textarea>
                                 </div>
 
-                                <div class="flex justify-content-center " >
+                               
+                            </div>
+                        </div>
+                        <div class="flex justify-content-center " >
                                     <div className="field col-12 md:col-6" >
                                         <Button label="Save" icon="pi pi-save" className="mr-2 mb-2" style={{ backgroundColor: 'green', borderBlockColor: 'green' }}></Button>
                                     </div>
@@ -86,54 +90,54 @@ const Cases = () => {
                                         <Button label="Cancel" icon="pi pi-times" className="mr-2 mb-2" style={{ backgroundColor: 'red', borderBlockColor: 'red' }}></Button>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
                     </div>
                 </Dialog>
             </div >
             <div className="col-12 lg:col-6 xl:col-2" >
-                <Dialog header="New Case Note" visible={basic} style={{ width: '30vw' }} onHide={() => setDisplayBasic(false)}  >
+                <Dialog header="New Case Note" visible={basic} style={{ width: '60vw' }} onHide={() => setDisplayBasic(false)}  >
                     <div className="col-12">
                         <div className="card">
 
                             <div className="p-fluid formgrid grid">
-                                <div className="field col-12 md:col-12 ">
+                                <div className="field col-12 md:col-6 ">
                                     <label htmlFor="firstname2">Case Name</label>
                                     <InputText id="firstname2" type="text" />
-                                </div>                                
+                                </div>
+                                <div className="field col-12 md:col-6 ">
+                                    <label htmlFor="firstname2">Status</label>
+                                    <Dropdown id="state" value={dropdownItem} onChange={(e) => setDropdownItem(e.value)} options={dropdownItems} optionLabel="name" placeholder="Select One"></Dropdown>
+                                </div>
                                 <div className="field col-12">
                                     <label htmlFor="firstname2">Description</label>
                                     <textarea id="address" type="text" rows="4" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"></textarea>
                                 </div>
-                                <div className="field col-12 md:col-12 ">
-                                    <label htmlFor="firstname2">Status</label>
-                                    <Dropdown id="state" value={dropdownItem} onChange={(e) => setDropdownItem(e.value)} options={dropdownItems} optionLabel="name" placeholder="Select One"></Dropdown>
-                                </div>
-                                <div class="flex justify-content-center " >
-                                    <div className="field col-12 md:col-6" >
-                                        <Button label="Save" icon="pi pi-save" className="mr-2 mb-2" style={{ backgroundColor: 'green', borderBlockColor: 'green' }}></Button>
-                                    </div>
-                                    <div className="field col-12 md:col-6" >
-                                        <Button label="Cancel" icon="pi pi-times" className="mr-2 mb-2" style={{ backgroundColor: 'red', borderBlockColor: 'red' }}></Button>
-                                    </div>
-                                </div>
+                               
+
+                            </div>
+                        </div>
+                        <div class="flex justify-content-center " >
+                            <div className="field col-12 md:col-6" >
+                                <Button label="Save" icon="pi pi-save" className="mr-2 mb-2" style={{ backgroundColor: 'green', borderBlockColor: 'green' }}></Button>
+                            </div>
+                            <div className="field col-12 md:col-6" >
+                                <Button label="Cancel" icon="pi pi-times" className="mr-2 mb-2" style={{ backgroundColor: 'red', borderBlockColor: 'red' }}></Button>
                             </div>
                         </div>
                     </div>
                 </Dialog>
             </div >
             <div className="col-12 lg:col-6 xl:col-2" >
-                <Dialog header="New Case " visible={display} style={{ width: '30vw' }} onHide={() => setDisplay(false)}  >
+                <Dialog header="New Case " visible={display} style={{ width: '60vw' }} onHide={() => setDisplay(false)}  >
                     <div className="col-12">
                         <div className="card">
 
                             <div className="p-fluid formgrid grid">
-                                <div className="field col-12 md:col-12 ">
+                                <div className="field col-12 md:col-6 ">
                                     <label htmlFor="firstname2">Case Number</label>
                                     <InputText id="firstname2" type="text" />
                                 </div>
 
-                                <div className="field col-12 md:col-12 ">
+                                <div className="field col-12 md:col-6 ">
                                     <label htmlFor="firstname2">Subject</label>
                                     <InputText id="firstname2" type="text" />
                                 </div>
@@ -143,41 +147,46 @@ const Cases = () => {
                                 </div>
                                 <div className="field col-12 md:col-6 ">
                                     <label htmlFor="firstname2">Case Type</label>
-                                    <Dropdown id="state" value={dropdownItem} onChange={(e) => setDropdownItem(e.value)} options={dropdownItems} optionLabel="name" placeholder="Select One"></Dropdown>
+                                    <Dropdown id="state" value={dropdownItem} onChange={(e) => setDropdownItem(e.value)} options={dropdownItems} optionLabel="name" ></Dropdown>
                                 </div>
                                 <div className="field col-12 md:col-6 ">
                                     <label htmlFor="firstname2">Assigned To</label>
-                                    <Dropdown id="state" value={dropdownItem} onChange={(e) => setDropdownItem(e.value)} options={dropdownItems} optionLabel="name" placeholder="Select One"></Dropdown>
+                                    <Dropdown id="state" value={dropdownItem} onChange={(e) => setDropdownItem(e.value)} options={dropdownItems} optionLabel="name" ></Dropdown>
                                 </div>
                                 <div className="field col-12 md:col-6 ">
                                     <label htmlFor="firstname2">Escalated To</label>
-                                    <Dropdown id="state" value={dropdownItem} onChange={(e) => setDropdownItem(e.value)} options={dropdownItems} optionLabel="name" placeholder="Select One"></Dropdown>
+                                    <Dropdown id="state" value={dropdownItem} onChange={(e) => setDropdownItem(e.value)} options={dropdownItems} optionLabel="name" ></Dropdown>
                                 </div>
                                 <div className="field col-12 md:col-6 ">
                                     <label htmlFor="firstname2">Status</label>
-                                    <Dropdown id="state" value={dropdownItem} onChange={(e) => setDropdownItem(e.value)} options={dropdownItems} optionLabel="name" placeholder="Select One"></Dropdown>
+                                    <Dropdown id="state" value={dropdownItem} onChange={(e) => setDropdownItem(e.value)} options={dropdownItems} optionLabel="name"></Dropdown>
                                 </div>
-                                <div className="field col-12 md:col-12 ">
+                                <div className="field col-12 md:col-6 ">
                                     <label htmlFor="firstname2">Case Origin</label>
-                                    <InputText id="firstname2" type="text" />
+                                    <Dropdown id="state" value={dropdownItem} onChange={(e) => setDropdownItem(e.value)} options={dropdownItems} optionLabel="name" ></Dropdown>
                                 </div>
                                 <div className="field col-12 md:col-6 ">
                                     <label htmlFor="firstname2">Reported by</label>
-                                    <Dropdown id="state" value={dropdownItem} onChange={(e) => setDropdownItem(e.value)} options={dropdownItems} optionLabel="name" placeholder="Select One"></Dropdown>
+                                    <Dropdown id="state" value={dropdownItem} onChange={(e) => setDropdownItem(e.value)} options={dropdownItems} optionLabel="name" ></Dropdown>
                                 </div>
                                 <div className="field col-12 md:col-6">
                                     <label htmlFor="state">Client Account</label>
-                                    <Dropdown id="state" value={dropdownItem} onChange={(e) => setDropdownItem(e.value)} options={dropdownItems} optionLabel="name" placeholder="Select One"></Dropdown>
+                                    <Dropdown id="state" value={dropdownItem} onChange={(e) => setDropdownItem(e.value)} options={dropdownItems} optionLabel="name" ></Dropdown>
+                                </div>
+                                <div className="field col-6">
+                                    <label htmlFor="firstname2">Contact Person</label>
+                                    <Dropdown id="state" value={dropdownItem} onChange={(e) => setDropdownItem(e.value)} options={dropdownItems} optionLabel="name" ></Dropdown>
                                 </div>
 
-                                <div class="flex justify-content-center " >
-                                    <div className="field col-12 md:col-6" >
-                                        <Button label="Save" icon="pi pi-save" className="mr-2 mb-2" style={{ backgroundColor: 'green', borderBlockColor: 'green' }}></Button>
-                                    </div>
-                                    <div className="field col-12 md:col-6" >
-                                        <Button label="Cancel" icon="pi pi-times" className="mr-2 mb-2" style={{ backgroundColor: 'red', borderBlockColor: 'red' }}></Button>
-                                    </div>
-                                </div>
+
+                            </div>
+                        </div>
+                        <div class="flex justify-content-center " >
+                            <div className="field col-12 md:col-6" >
+                                <Button label="Save" icon="pi pi-save" className="mr-2 mb-2" style={{ backgroundColor: 'green', borderBlockColor: 'green' }}></Button>
+                            </div>
+                            <div className="field col-12 md:col-6" >
+                                <Button label="Cancel" icon="pi pi-times" className="mr-2 mb-2" style={{ backgroundColor: 'red', borderBlockColor: 'red' }}></Button>
                             </div>
                         </div>
                     </div>

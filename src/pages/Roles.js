@@ -3,12 +3,13 @@ import { DataTable } from 'primereact/datatable';
 import React, { useState } from 'react';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
+import { RadioButton } from 'primereact/radiobutton';
 import { Dialog } from 'primereact/dialog';
 import { useNavigate } from 'react-router-dom';
 import data from '../assets/flags/Roles.json';
 import { Checkbox } from 'primereact/checkbox';
 
-function Roles() {
+const Roles = () => {
 
 
     const [displayBasic, setDisplayBasic] = useState(false);
@@ -67,9 +68,9 @@ function Roles() {
                                 </div>
                                 <div className="field col-12 md:col-12 ">
                                     <label htmlFor="firstname2">Permissions</label>
-                                   
+
                                 </div>
-                                <div className="grid">                                    
+                                <div className="grid">
                                     <div className="col-12 md:col-6">
                                         <div className="field-checkbox">
                                             <Checkbox inputId="checkOption1" name="option" value="Chicago" checked={checkboxValue.indexOf('Chicago') !== -1} onChange={onCheckboxChange} />
@@ -95,16 +96,14 @@ function Roles() {
                                         </div>
                                     </div>
                                 </div>
-
-
-                                <div class="flex justify-content-center " >
-                                    <div className="field col-12 md:col-6" >
-                                        <Button label="Save" icon="pi pi-save" className="mr-2 mb-2" style={{ backgroundColor: 'green', borderBlockColor: 'green' }}></Button>
-                                    </div>
-                                    <div className="field col-12 md:col-6" >
-                                        <Button label="Cancel" icon="pi pi-times" className="mr-2 mb-2" style={{ backgroundColor: 'red', borderBlockColor: 'red' }}></Button>
-                                    </div>
-                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-content-center " >
+                            <div className="field col-12 md:col-6" >
+                                <Button label="Save" icon="pi pi-save" className="mr-2 mb-2" style={{ backgroundColor: 'green', borderBlockColor: 'green' }}></Button>
+                            </div>
+                            <div className="field col-12 md:col-6" >
+                                <Button label="Cancel" icon="pi pi-times" className="mr-2 mb-2" style={{ backgroundColor: 'red', borderBlockColor: 'red' }}></Button>
                             </div>
                         </div>
                     </div>
