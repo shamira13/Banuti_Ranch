@@ -53,17 +53,17 @@ const App = () => {
     const breadcrumb = [
         { path: '/', parent: 'Dashboard', label: 'Dashboard' },
         //{ path: '/Users', parent: 'Users', label: 'Users' },
-        { path: '/Clients', parent: 'Clients', label: 'Clients' },
-        { path: '/Roles', parent: 'Roles', label: 'Roles' },
-        { path: '/MenuDemo', parent: 'Clients', label: 'View Client' },
-        { path: '/ViewCase', parent: 'ViewCase', label: 'View Case' },
-        { path: '/SystemUsers', parent: 'SystemUsers', label: 'System Users' },
-        { path: '/Cases', parent: 'Cases', label: 'Cases' },
-        { path: '/menu', parent: 'UI Kit', label: 'Company Information' },
-        { path: '/menu/seat', parent: 'UI Kit', label: 'Contact Person' },
-        { path: '/menu/payment', parent: 'UI Kit', label: 'Product Lines' },
-        { path: '/menu/confirmation', parent: 'UI Kit', label: 'Communications' },
-        { path: '/menu/case', parent: 'UI Kit', label: 'Cases' },
+        // { path: '/Clients', parent: 'Clients', label: 'Clients' },
+        // { path: '/Roles', parent: 'Roles', label: 'Roles' },
+        // { path: '/MenuDemo', parent: 'Clients', label: 'View Client' },
+        // { path: '/ViewCase', parent: 'ViewCase', label: 'View Case' },
+        // { path: '/SystemUsers', parent: 'SystemUsers', label: 'System Users' },
+        // { path: '/Cases', parent: 'Cases', label: 'Cases' },
+        // { path: '/menu', parent: 'UI Kit', label: 'Company Information' },
+        // { path: '/menu/seat', parent: 'UI Kit', label: 'Contact Person' },
+        // { path: '/menu/payment', parent: 'UI Kit', label: 'Product Lines' },
+        // { path: '/menu/confirmation', parent: 'UI Kit', label: 'Communications' },
+        // { path: '/menu/case', parent: 'UI Kit', label: 'Cases' },
     ];
 
     const menu = [
@@ -72,28 +72,28 @@ const App = () => {
             icon: 'pi pi-fw pi-home',
             items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/' }]
         },
-        {
-            label: 'Accounts',
-            icon: 'pi pi-fw pi-user',
-            items: [
-            { label: 'Clients', icon: 'pi pi-fw pi-shopping-cart', to: '/Clients' },
-            { label: 'System Users', icon: 'pi pi-fw pi-credit-card', to: '/SystemUsers' },
-        ]
-        },
-        {
-            label: 'Client Support',
-            icon: 'pi pi-fw pi-shield',
-            items: [
-                { label: 'Cases', icon: 'pi pi-fw pi-sign-in', to: '/Cases' },
-            ]
-        },
-        {
-            label: 'System Settings',
-            icon: 'pi pi-fw pi-cog',
-            items: [
-              { label: 'Roles', icon: 'pi pi-fw pi-list', to: '/Roles' },
-            ]
-        },
+        // {
+        //     label: 'Accounts',
+        //     icon: 'pi pi-fw pi-user',
+        //     items: [
+        //     { label: 'Clients', icon: 'pi pi-fw pi-shopping-cart', to: '/Clients' },
+        //     { label: 'System Users', icon: 'pi pi-fw pi-credit-card', to: '/SystemUsers' },
+        // ]
+        // },
+        // {
+        //     label: 'Client Support',
+        //     icon: 'pi pi-fw pi-shield',
+        //     items: [
+        //         { label: 'Cases', icon: 'pi pi-fw pi-sign-in', to: '/Cases' },
+        //     ]
+        // },
+        // {
+        //     label: 'System Settings',
+        //     icon: 'pi pi-fw pi-cog',
+        //     items: [
+        //       { label: 'Roles', icon: 'pi pi-fw pi-list', to: '/Roles' },
+        //     ]
+        // },
        
        
     ];
@@ -332,13 +332,13 @@ const App = () => {
                 <div className="layout-content">
                     <Routes>
                         <Route path="/" element={<Dashboard />} />
-                        <Route path="/Users" element={<Users />} />
+                        {/* <Route path="/Users" element={<Users />} />
                         <Route path="/Clients" element={<Clients />} />
                         <Route path="/Cases" element={<Cases />} />
                         <Route path="/SystemUsers" element={<SystemUsers />} />
                         <Route path="/Roles" element={<Roles />} />                       
                         <Route path="/menu/*" element={<MenuDemo />} /> 
-                        <Route path="/ViewCase" element={<ViewCase />} />                       
+                        <Route path="/ViewCase" element={<ViewCase />} />                        */}
                     </Routes>
                 </div>
 
