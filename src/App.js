@@ -25,6 +25,7 @@ import SystemUsers from './pages/SystemUsers';
 import MenuDemo from './pages/MenuDemo';
 import ViewCase from './pages/ViewCase';
 import CaseDemo from './components/menu/CaseDemo';
+import InformationBank from './pages/InformationBank';
 
 const App = () => {
     const [menuActive, setMenuActive] = useState(false);
@@ -52,6 +53,7 @@ const App = () => {
 
     const breadcrumb = [
         { path: '/', parent: 'Dashboard', label: 'Dashboard' },
+        { path: '/InformationBank', parent: 'InformationBank', label: 'Information Bank' },
         //{ path: '/Users', parent: 'Users', label: 'Users' },
         // { path: '/Clients', parent: 'Clients', label: 'Clients' },
         // { path: '/Roles', parent: 'Roles', label: 'Roles' },
@@ -72,6 +74,11 @@ const App = () => {
             icon: 'pi pi-fw pi-home',
             items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/' }]
         },
+        {
+            label: 'Information Bank',
+            icon: 'pi pi-fw pi-home',
+            items: [{ label: 'Information Bank', icon: 'pi pi-fw pi-home', to: '/InformationBank' }]
+        }
         // {
         //     label: 'Accounts',
         //     icon: 'pi pi-fw pi-user',
@@ -332,6 +339,7 @@ const App = () => {
                 <div className="layout-content">
                     <Routes>
                         <Route path="/" element={<Dashboard />} />
+                        <Route path="/InformationBank" element={<InformationBank />} />
                         {/* <Route path="/Users" element={<Users />} />
                         <Route path="/Clients" element={<Clients />} />
                         <Route path="/Cases" element={<Cases />} />
