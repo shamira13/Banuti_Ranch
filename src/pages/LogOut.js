@@ -3,7 +3,7 @@ import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import { useNavigate } from 'react-router-dom';
 
-export const Login = () => {
+export const LogOut = () => {
     const navigate = useNavigate();
 
     return (
@@ -11,10 +11,11 @@ export const Login = () => {
             <div className="login-panel"></div>
 
             <div className="login-content">
-                <img src="assets/layout/images/logo-black.png" alt="babylon-layout" />
+                <img src="assets/layout/images/download.jpeg" alt="babylon-layout" />
+                
 
                 <h1>
-                    <span>SIGN IN</span> TO BABYLON
+                    <span>SIGN IN</span> TO BANUTI RANCH MIS
                 </h1>
                 <p>Welcome, please use the form to sign-in.</p>
 

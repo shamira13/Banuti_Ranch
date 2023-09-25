@@ -26,6 +26,7 @@ import MenuDemo from './pages/MenuDemo';
 import ViewCase from './pages/ViewCase';
 import CaseDemo from './components/menu/CaseDemo';
 import InformationBank from './pages/InformationBank';
+import { LogOut } from './pages/LogOut';
 
 
 const App = () => {
@@ -55,6 +56,7 @@ const App = () => {
     const breadcrumb = [
         { path: '/', parent: 'Dashboard', label: 'Dashboard' },
         { path: '/InformationBank', parent: 'InformationBank', label: 'Information Bank' },
+        { path: '/LogOut', parent: 'LogOut', label: 'Log out' },
         
         //{ path: '/Users', parent: 'Users', label: 'Users' },
         // { path: '/Clients', parent: 'Clients', label: 'Clients' },
@@ -78,8 +80,13 @@ const App = () => {
         },
         {
             label: 'Information Bank',
-            icon: 'pi pi-fw pi-home',
+            icon: 'pi pi-fw pi-bar',
             items: [{ label: 'Information Bank', icon: 'pi pi-fw pi-home', to: '/InformationBank' }]
+        },
+        {
+            label: 'LogOut',
+            icon: 'pi pi-fw pi-bar',
+            items: [{ label: 'Log out', icon: 'pi pi-fw pi-home', to: '/Login' }]
         }
         // {
         //     label: 'Accounts',
@@ -342,6 +349,7 @@ const App = () => {
                     <Routes>
                         <Route path="/" element={<Dashboard />} />
                         <Route path="/InformationBank" element={<InformationBank />} />
+                        <Route path="/LogOut" element={<LogOut />} />
                        
                     {/* <Route path="/Users" element={<Users />} />
                         <Route path="/Clients" element={<Clients />} />
