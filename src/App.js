@@ -80,13 +80,13 @@ const App = () => {
         },
         {
             label: 'Information Bank',
-            icon: 'pi pi-fw pi-bar',
-            items: [{ label: 'Information Bank', icon: 'pi pi-fw pi-home', to: '/InformationBank' }]
+            icon: 'pi pi-fw pi-bars',
+            items: [{ label: 'Information Bank', icon: 'pi pi-fw pi-bars', to: '/InformationBank' }]
         },
         {
             label: 'LogOut',
-            icon: 'pi pi-fw pi-bar',
-            items: [{ label: 'Log out', icon: 'pi pi-fw pi-home', to: '/Login' }]
+            icon: 'pi pi-fw pi-sign-out',
+            items: [{ label: 'Log out', icon: 'pi pi-fw pi-sign-out', to: '/Login' }]
         }
         // {
         //     label: 'Accounts',
