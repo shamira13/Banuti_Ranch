@@ -26,8 +26,7 @@ import MenuDemo from './pages/MenuDemo';
 import ViewCase from './pages/ViewCase';
 import CaseDemo from './components/menu/CaseDemo';
 import InformationBank from './pages/InformationBank';
-import Tips from './pages/Tips';
-import Help from './pages/Help';
+
 
 const App = () => {
     const [menuActive, setMenuActive] = useState(false);
@@ -56,8 +55,7 @@ const App = () => {
     const breadcrumb = [
         { path: '/', parent: 'Dashboard', label: 'Dashboard' },
         { path: '/InformationBank', parent: 'InformationBank', label: 'Information Bank' },
-        { path: '/Help', parent: 'InformationBank', label: 'Help' },
-        { path: '/Tips', parent: 'InformationBank', label: 'Tips' },
+        
         //{ path: '/Users', parent: 'Users', label: 'Users' },
         // { path: '/Clients', parent: 'Clients', label: 'Clients' },
         // { path: '/Roles', parent: 'Roles', label: 'Roles' },
@@ -82,16 +80,6 @@ const App = () => {
             label: 'Information Bank',
             icon: 'pi pi-fw pi-home',
             items: [{ label: 'Information Bank', icon: 'pi pi-fw pi-home', to: '/InformationBank' }]
-        },
-        {
-            label: 'Help',
-            icon: 'pi pi-fw pi-home',
-            items: [{ label: 'Help', icon: 'pi pi-fw pi-home', to: '/Help' }]
-        },
-        {
-            label: 'Information Bank',
-            icon: 'pi pi-fw pi-home',
-            items: [{ label: 'Tips', icon: 'pi pi-fw pi-home', to: '/Tips' }]
         }
         // {
         //     label: 'Accounts',
@@ -354,9 +342,8 @@ const App = () => {
                     <Routes>
                         <Route path="/" element={<Dashboard />} />
                         <Route path="/InformationBank" element={<InformationBank />} />
-                        <Route path="/Help" element={<Help />} />
-                        <Route path="/Tips" element={<Tips />} />
-                        {/* <Route path="/Users" element={<Users />} />
+                       
+                    {/* <Route path="/Users" element={<Users />} />
                         <Route path="/Clients" element={<Clients />} />
                         <Route path="/Cases" element={<Cases />} />
                         <Route path="/SystemUsers" element={<SystemUsers />} />
