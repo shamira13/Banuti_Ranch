@@ -25,11 +25,7 @@ export default function AnimalChart() {
                         name: 'Child A',
                         title: 'male'
                     },
-                    data1: {
-                        image: 'https://primefaces.org/cdn/primereact/images/avatar/annafali.png',
-                        name: 'Child A',
-                        title: 'male'
-                    },
+                   
                     children: [
                         {
                             label: 'sibling 1',
