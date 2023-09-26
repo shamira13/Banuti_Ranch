@@ -54,21 +54,6 @@ function InformationBank() {
 		Keep checking the doe's tail ligaments	</p>
                     </p>
                 </TabPanel>
-                <TabPanel header="Tip 3">
-                    <p className="m-0">
-                        <h4>Eat well to see well.</h4>
-                        Eat plenty of leafy green vegetables and colored fruits, berries and vegetables every day. They contain vitamins and minerals that protect your 
-        body and eyes. In fact, studies show that eye-healthy foods are better than vitamins at preventing glaucoma.
-                    </p>
-                </TabPanel>
-                <TabPanel header="Tip 4">
-                    <p className="m-0">
-                        <h4>Exercise regularly but carefully.</h4>
-                        Intense exercise that raises your heart rate can also raise your eye pressure. But brisk walking and regular exercise at a moderate pace can lower 
-        eye pressure and improve your overall health. If you lift heavy weights, have a qualified trainer show you how to breathe properly during this exercise.
-                    </p>
-                </TabPanel>
-                
                
             </TabView>
         </div>
@@ -78,36 +63,36 @@ function InformationBank() {
                 
                 <TabPanel header="Heat Signs">
                     <p className="m-0">
-                        <h4>Healthy Diet Healthy Eyesight.</h4>
+                        <h4>How to tell an animal is on heat.</h4>
                         Yes, it starts as simple as that; you are what you eat and so is your eyesight. Foods rich in nutrients like vitamin C and E, zinc, lutein and omega-3 fatty acids strengthen your eyes against age-related eye problems like cataracts and macular degeneration. Some great foods for eye health include:
 
 
                     </p>
                 </TabPanel>
-                <TabPanel header="Tip 2">
+                <TabPanel header="Animal Foods">
                     <p className="m-0">
-                        <h4>Quit Smoking.</h4>
+                        <h4>Animal Foods.</h4>
                         Research suggest that the likelihood of smokers getting affected from these debilitating eye conditions increases twice to thrice. 
         So, here is to those of you who like their eyesight more than a cigarette.
                     </p>
                 </TabPanel>
-                <TabPanel header="Tip 3">
+                <TabPanel header="Breeding days">
                     <p className="m-0">
-                        <h4>Shades are Helpful.</h4>
+                        <h4>Breeding days</h4>
                         If you considered sunglasses a mere fashion accessory, think again. A right pair of shades can help you stay away from cataracts, macular degeneration 
         and pinguecula by blocking out sun’s harmful UV (ultraviolet) rays. A good pair of UV protection sunglasses can block 99 – 100% of harmful UV rays. In case you are wondering, UV protection contact lenses are also available.
                     </p>
                 </TabPanel>
-                <TabPanel header="Tip 4">
+                <TabPanel header="Diary Information">
                     <p className="m-0">
-                        <h4> Avoid Excessive Exposure to Computer Screens.</h4>
+                        <h4>Diary Information</h4>
                         In addition to causing neck, back and shoulder pain, staring too long at a computer/phone screen can affect your eye health severely. Some of the eye problems you can get from excessive exposure to computer/phone screens include:
 
                     </p>
                 </TabPanel>
-                <TabPanel header="Tip 5">
+                <TabPanel header="Animal Breeds">
                     <p className="m-0">
-                        <h4>Incorporate Blinking Breaks.</h4>
+                        <h4>Animal Breeds</h4>
                         Don’t only blame computers and phone screens for eyestrain. Books and written documents can also cause eyestrain when looked upon for extended periods.
  So, make sure to get your head up, look away from the docs and just blink your eyes for a few seconds to relieve the strain.
                     </p>

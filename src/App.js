@@ -24,6 +24,7 @@ import InformationBank from './pages/InformationBank';
 import AnimalStages from './pages/AnimalStages';
 import ViewStage from './pages/ViewStage';
 import { LogOut } from './pages/LogOut';
+import AnimalChart from './pages/AnimalChart';
 
 
 const App = () => {
@@ -58,8 +59,21 @@ const App = () => {
         { path: '/AnimalStages', parent: 'AnimalStages', label: 'Animal Stages' },
         { path: '/ViewStage', parent: 'ViewStage', label: 'Stages' },
         { path: '/ViewAnimal', parent: 'ViewAnimal', label: 'View Animal' },
+        { path: '/AnimalChart', parent: 'AnimalChart', label: 'Animal Chart' },
         { path: '/LogOut', parent: 'LogOut', label: 'Log out' },
-      
+        
+        //{ path: '/Users', parent: 'Users', label: 'Users' },
+        // { path: '/Clients', parent: 'Clients', label: 'Clients' },
+        // { path: '/Roles', parent: 'Roles', label: 'Roles' },
+        // { path: '/MenuDemo', parent: 'Clients', label: 'View Client' },
+        // { path: '/ViewCase', parent: 'ViewCase', label: 'View Case' },
+        // { path: '/SystemUsers', parent: 'SystemUsers', label: 'System Users' },
+        // { path: '/Cases', parent: 'Cases', label: 'Cases' },
+        // { path: '/menu', parent: 'UI Kit', label: 'Company Information' },
+        // { path: '/menu/seat', parent: 'UI Kit', label: 'Contact Person' },
+        // { path: '/menu/payment', parent: 'UI Kit', label: 'Product Lines' },
+        // { path: '/menu/confirmation', parent: 'UI Kit', label: 'Communications' },
+        // { path: '/menu/case', parent: 'UI Kit', label: 'Cases' },
     ];
 
     const menu = [
@@ -70,27 +84,40 @@ const App = () => {
         },
         {
             label: 'Information Bank',
-            icon: 'pi pi-fw pi-info',
-            items: [
-                { label: 'Information Bank', icon: 'pi pi-fw pi-info', to: '/InformationBank' },
-                { label: 'Animal Stages', icon: 'pi pi-fw pi-info', to: '/AnimalStages' },
-            ]
-        },
-        {
-            label: 'Animals',
-            icon: 'pi pi-fw pi-database',
-            items: [{ label: 'Animal Management', icon: 'pi pi-fw pi-database', to: '/Animals' }]
-        },
-        {
-            label: 'Events',
-            icon: 'pi pi-fw pi-calendar',
-            items: [{ label: 'Calendar & Schedule', icon: 'pi pi-fw pi-calendar', to: '/Events' }]
+            icon: 'pi pi-fw pi-bar',
+            items: [{ label: 'Information Bank', icon: 'pi pi-fw pi-home', to: '/InformationBank' },
+            { label: 'Animal Stages', icon: 'pi pi-fw pi-home', to: '/AnimalStages' },
+            { label: 'AnimalChart', icon: 'pi pi-fw pi-home', to: '/AnimalChart' }]
         },
         {
             label: 'LogOut',
-            icon: 'pi pi-fw pi-sign-out',
+            icon: 'pi pi-fw pi-bar',
             items: [{ label: 'Log out', icon: 'pi pi-fw pi-home', to: '/Login' }]
-        },
+        }
+        // {
+        //     label: 'Accounts',
+        //     icon: 'pi pi-fw pi-user',
+        //     items: [
+        //     { label: 'Clients', icon: 'pi pi-fw pi-shopping-cart', to: '/Clients' },
+        //     { label: 'System Users', icon: 'pi pi-fw pi-credit-card', to: '/SystemUsers' },
+        // ]
+        // },
+        // {
+        //     label: 'Client Support',
+        //     icon: 'pi pi-fw pi-shield',
+        //     items: [
+        //         { label: 'Cases', icon: 'pi pi-fw pi-sign-in', to: '/Cases' },
+        //     ]
+        // },
+        // {
+        //     label: 'System Settings',
+        //     icon: 'pi pi-fw pi-cog',
+        //     items: [
+        //       { label: 'Roles', icon: 'pi pi-fw pi-list', to: '/Roles' },
+        //     ]
+        // },
+       
+       
     ];
 
     useEffect(() => {
@@ -334,6 +361,15 @@ const App = () => {
                         <Route path="/Animals" element={<Animals />} />
                         <Route path="/Events" element={<Events />} />
                         <Route path="/LogOut" element={<LogOut />} />
+                        <Route path="/AnimalChart" element={<AnimalChart />} />
+                       
+                    {/* <Route path="/Users" element={<Users />} />
+                        <Route path="/Clients" element={<Clients />} />
+                        <Route path="/Cases" element={<Cases />} />
+                        <Route path="/SystemUsers" element={<SystemUsers />} />
+                        <Route path="/Roles" element={<Roles />} />                       
+                        <Route path="/menu/*" element={<MenuDemo />} /> 
+                        <Route path="/ViewCase" element={<ViewCase />} />                        */}
                     </Routes>
                 </div>
 
