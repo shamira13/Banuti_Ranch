@@ -27,6 +27,7 @@ import ViewCase from './pages/ViewCase';
 import CaseDemo from './components/menu/CaseDemo';
 import InformationBank from './pages/InformationBank';
 import { LogOut } from './pages/LogOut';
+import AnimalChart from './pages/AnimalChart';
 
 
 const App = () => {
@@ -57,6 +58,7 @@ const App = () => {
         { path: '/', parent: 'Dashboard', label: 'Dashboard' },
         { path: '/InformationBank', parent: 'InformationBank', label: 'Information Bank' },
         { path: '/LogOut', parent: 'LogOut', label: 'Log out' },
+        { path: '/AnimalChart', parent: 'AnimalChart', label: 'Family Tree' },
         
         //{ path: '/Users', parent: 'Users', label: 'Users' },
         // { path: '/Clients', parent: 'Clients', label: 'Clients' },
@@ -84,10 +86,16 @@ const App = () => {
             items: [{ label: 'Information Bank', icon: 'pi pi-fw pi-bars', to: '/InformationBank' }]
         },
         {
+            label: 'Family Tree',
+            icon: 'pi pi-fw pi-bars',
+            items: [{ label: 'Family Tree', icon: 'pi pi-fw pi-bars', to: '/AnimalChart' }]
+        },
+        {
             label: 'LogOut',
             icon: 'pi pi-fw pi-sign-out',
             items: [{ label: 'Log out', icon: 'pi pi-fw pi-sign-out', to: '/Login' }]
         }
+       
         // {
         //     label: 'Accounts',
         //     icon: 'pi pi-fw pi-user',
@@ -350,6 +358,7 @@ const App = () => {
                         <Route path="/" element={<Dashboard />} />
                         <Route path="/InformationBank" element={<InformationBank />} />
                         <Route path="/LogOut" element={<LogOut />} />
+                        <Route path="/AnimalChart" element={<AnimalChart />} />
                        
                     {/* <Route path="/Users" element={<Users />} />
                         <Route path="/Clients" element={<Clients />} />
