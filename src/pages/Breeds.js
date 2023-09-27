@@ -13,10 +13,10 @@ const Breeds = () => {
     const [displayBasic, setDisplayBasic] = useState(false);
     const [display, setDisplay] = useState(false);
     const [basic, setBasic] = useState(false);
-    const [dropdownItem, setDropdownItem] = useState(null);
-    const dropdownItems = [
-        { name: 'Male', code: 'option 1' },
-        { name: 'Female', code: 'option 2' }
+    const [Item, setItem] = useState(null);
+    const Items = [
+        { name: 'Cattle', code: 'Option 1' },
+        { name: 'Goats', code: 'Option 2' },
     ];
 
     return (
@@ -60,7 +60,7 @@ const Breeds = () => {
 
                                 <div className="field col-12 md:col-6 ">
                                     <label htmlFor="firstname2">Animal Category</label>
-                                    <InputText id="firstname2" type="text" />
+                                    <Dropdown id="state" value={Items} onChange={(e) => setItem(e.value)} options={Items} optionLabel="name" placeholder="Select One"></Dropdown>
                                 </div>
 
 

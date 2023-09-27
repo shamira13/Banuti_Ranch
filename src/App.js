@@ -85,9 +85,9 @@ const App = () => {
         {
             label: 'Information Bank',
             icon: 'pi pi-fw pi-bar',
-            items: [{ label: 'Information Bank', icon: 'pi pi-fw pi-bars', to: '/InformationBank' },
+            items: [{ label: 'Information Bank', icon: 'pi pi-fw pi-info', to: '/InformationBank' },
            
-            { label: 'AnimalChart', icon: 'pi pi-fw pi-bars', to: '/AnimalChart' },
+            { label: 'AnimalChart', icon: 'pi pi-fw pi-sitemap', to: '/AnimalChart' },
             
         ]
         },
@@ -95,8 +95,8 @@ const App = () => {
             label: 'Animal Management',
             icon: 'pi pi-fw pi-home',
             items: [{ label: 'Animals', icon: 'pi pi-fw pi-database', to: '/Animals' },
-            { label: 'Animal Workflows', icon: 'pi pi-fw pi-bars', to: '/AnimalStages' },
-            { label: 'Animal Breeds', icon: 'pi pi-fw pi-bars', to: '/Breeds' },]
+            { label: 'Animal Workflows', icon: 'pi pi-fw pi-th-large', to: '/AnimalStages' },
+            { label: 'Animal Breeds', icon: 'pi pi-fw pi-ellipsis-v', to: '/Breeds' },]
         },
         {
             label: 'Calendar',
@@ -107,30 +107,7 @@ const App = () => {
             label: 'LogOut',
             icon: 'pi pi-fw pi-bar',
             items: [{ label: 'Log out', icon: 'pi pi-fw pi-sign-out', to: '/Login' }]
-        }
-        // {
-        //     label: 'Accounts',
-        //     icon: 'pi pi-fw pi-user',
-        //     items: [
-        //     { label: 'Clients', icon: 'pi pi-fw pi-shopping-cart', to: '/Clients' },
-        //     { label: 'System Users', icon: 'pi pi-fw pi-credit-card', to: '/SystemUsers' },
-        // ]
-        // },
-        // {
-        //     label: 'Client Support',
-        //     icon: 'pi pi-fw pi-shield',
-        //     items: [
-        //         { label: 'Cases', icon: 'pi pi-fw pi-sign-in', to: '/Cases' },
-        //     ]
-        // },
-        // {
-        //     label: 'System Settings',
-        //     icon: 'pi pi-fw pi-cog',
-        //     items: [
-        //       { label: 'Roles', icon: 'pi pi-fw pi-list', to: '/Roles' },
-        //     ]
-        // },
-       
+        }      
        
     ];
 
@@ -377,16 +354,10 @@ const App = () => {
                         <Route path="/LogOut" element={<LogOut />} />
                         <Route path="/AnimalChart" element={<AnimalChart />} />
                        <Route path="/Breeds" element={<Breeds />} />
-                        {/* <Route path="/Clients" element={<Clients />} />
-                        <Route path="/Cases" element={<Cases />} />
-                        <Route path="/SystemUsers" element={<SystemUsers />} />
-                        <Route path="/Roles" element={<Roles />} />                       
-                        <Route path="/menu/*" element={<MenuDemo />} /> 
-                        <Route path="/ViewCase" element={<ViewCase />} />                        */} 
                     </Routes>
                 </div>
 
-                <AppFooter />
+              
             </div>
 
             <AppConfig
