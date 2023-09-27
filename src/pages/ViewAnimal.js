@@ -55,10 +55,11 @@ const ViewAnimal = () => {
         </p>
                 </TabPanel>
 
-                <TabPanel header="Lactating">
+                <TabPanel header="Stage">
                 <p className="m-0">
-                <h4> <p>Current Status: NOT LACTATING</p> </h4>
-                   <p>Mate Date: 12/08/2023</p>
+                <h4> <p>Current Stage:LACTATING</p> </h4>
+                   <p>Start Date: 12/08/2023</p>
+                   <p>Expected End Date: 15/09/2023</p>
                     <p> BULL: RUGAJU	<br></br>	</p>
 	                  <p>RANCH: NKOMA RANCH		<br></br></p> 
         </p>

@@ -11,28 +11,25 @@ import AppBreadcrumb from './AppBreadcrumb';
 import AppInlineProfile from './AppInlineProfile';
 
 import Dashboard from './pages/Dashboard';
-import Clients from './pages/Clients';
-import Roles from './pages/Roles';
-import Cases from './pages/Cases';
-import Users from './pages/SystemUsers';
+import Animals from './pages/Animals';
+import Events from './pages/Events';
+import ViewAnimal from './pages/ViewAnimal';
 import PrimeReact from 'primereact/api';
 import { Tooltip } from 'primereact/tooltip';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
 import './App.scss';
-import SystemUsers from './pages/SystemUsers';
-import MenuDemo from './pages/MenuDemo';
-import ViewCase from './pages/ViewCase';
-import CaseDemo from './components/menu/CaseDemo';
 import InformationBank from './pages/InformationBank';
+import AnimalStages from './pages/AnimalStages';
+import ViewStage from './pages/ViewStage';
 import { LogOut } from './pages/LogOut';
 import AnimalChart from './pages/AnimalChart';
 
 
 const App = () => {
     const [menuActive, setMenuActive] = useState(false);
-    const [menuMode, setMenuMode] = useState('slim');
+    const [menuMode, setMenuMode] = useState('static');
     const [darkMenu, setDarkMenu] = useState(false);
     const [overlayMenuActive, setOverlayMenuActive] = useState(false);
     const [topbarMenuActive, setTopbarMenuActive] = useState(false);
@@ -57,8 +54,13 @@ const App = () => {
     const breadcrumb = [
         { path: '/', parent: 'Dashboard', label: 'Dashboard' },
         { path: '/InformationBank', parent: 'InformationBank', label: 'Information Bank' },
+        { path: '/Animals', parent: 'Animals', label: 'Animal Management' },
+        { path: '/Events', parent: 'Events', label: 'Calendar&Schedule' },
+        { path: '/AnimalStages', parent: 'AnimalStages', label: 'Animal Stages' },
+        { path: '/ViewStage', parent: 'ViewStage', label: 'Stages' },
+        { path: '/ViewAnimal', parent: 'ViewAnimal', label: 'View Animal' },
+        { path: '/AnimalChart', parent: 'AnimalChart', label: 'Animal Chart' },
         { path: '/LogOut', parent: 'LogOut', label: 'Log out' },
-        { path: '/AnimalChart', parent: 'AnimalChart', label: 'Family Tree' },
         
         //{ path: '/Users', parent: 'Users', label: 'Users' },
         // { path: '/Clients', parent: 'Clients', label: 'Clients' },
@@ -76,26 +78,22 @@ const App = () => {
 
     const menu = [
         {
-            label: 'Home Page',
+            label: 'Dashboard',
             icon: 'pi pi-fw pi-home',
             items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/' }]
         },
         {
             label: 'Information Bank',
-            icon: 'pi pi-fw pi-bars',
-            items: [{ label: 'Information Bank', icon: 'pi pi-fw pi-bars', to: '/InformationBank' }]
-        },
-        {
-            label: 'Family Tree',
-            icon: 'pi pi-fw pi-bars',
-            items: [{ label: 'Family Tree', icon: 'pi pi-fw pi-bars', to: '/AnimalChart' }]
+            icon: 'pi pi-fw pi-bar',
+            items: [{ label: 'Information Bank', icon: 'pi pi-fw pi-home', to: '/InformationBank' },
+            { label: 'Animal Stages', icon: 'pi pi-fw pi-home', to: '/AnimalStages' },
+            { label: 'AnimalChart', icon: 'pi pi-fw pi-home', to: '/AnimalChart' }]
         },
         {
             label: 'LogOut',
-            icon: 'pi pi-fw pi-sign-out',
-            items: [{ label: 'Log out', icon: 'pi pi-fw pi-sign-out', to: '/Login' }]
+            icon: 'pi pi-fw pi-bar',
+            items: [{ label: 'Log out', icon: 'pi pi-fw pi-home', to: '/Login' }]
         }
-       
         // {
         //     label: 'Accounts',
         //     icon: 'pi pi-fw pi-user',
@@ -324,13 +322,13 @@ const App = () => {
             <Tooltip ref={copyTooltipRef} target=".block-action-copy" position="bottom" content="Copied to clipboard" event="focus" />
 
             <AppTopbar
-                // topbarMenuActive={topbarMenuActive}
-                // activeTopbarItem={activeTopbarItem}
-                // onMenuButtonClick={onMenuButtonClick}
-                // onTopbarMenuButtonClick={onTopbarMenuButtonClick}
-                // onTopbarItemClick={onTopbarItemClick}
-                // isHorizontal={isHorizontal()}
-                // profileMode={profileMode}
+                topbarMenuActive={topbarMenuActive}
+                activeTopbarItem={activeTopbarItem}
+                onMenuButtonClick={onMenuButtonClick}
+                onTopbarMenuButtonClick={onTopbarMenuButtonClick}
+                onTopbarItemClick={onTopbarItemClick}
+                isHorizontal={isHorizontal()}
+                profileMode={profileMode}
                 isMobile={isMobile}
                 
             />
@@ -351,12 +349,17 @@ const App = () => {
             </div>
 
             <div className="layout-main">
-                {/* <AppBreadcrumb meta={meta} /> */}
+                <AppBreadcrumb meta={meta} />
 
                 <div className="layout-content">
                     <Routes>
                         <Route path="/" element={<Dashboard />} />
                         <Route path="/InformationBank" element={<InformationBank />} />
+                        <Route path="/AnimalStages" element={<AnimalStages />} />
+                        <Route path="/ViewStage" element={<ViewStage />} />
+                        <Route path="/ViewAnimal" element={<ViewAnimal />} />
+                        <Route path="/Animals" element={<Animals />} />
+                        <Route path="/Events" element={<Events />} />
                         <Route path="/LogOut" element={<LogOut />} />
                         <Route path="/AnimalChart" element={<AnimalChart />} />
                        

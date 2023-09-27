@@ -2,7 +2,6 @@ import React from 'react';
 import { classNames } from 'primereact/utils';
 import { useNavigate } from 'react-router-dom';
 
-
 const AppTopbar = (props) => {
     const navigate = useNavigate();
     const topbarMenuClassName = classNames('topbar-menu fadeInDown', { 'topbar-menu-visible': props.topbarMenuActive });
@@ -15,9 +14,9 @@ const AppTopbar = (props) => {
 
     return (
         <div className="layout-topbar">
-            {/* <button className="layout-topbar-logo p-link" onClick={() => navigate('/')}>
-                <img id="layout-topbar-logo" src="assets/layout/images/ernu-black.png" alt="babylon-layout" />
-            </button> */}
+            <button className="layout-topbar-logo p-link" onClick={() => navigate('/')}>
+                <img id="layout-topbar-logo" src="assets/layout/images/logo-white.png" alt="babylon-layout" />
+            </button>
 
             <button className="layout-menu-button p-link" onClick={props.onMenuButtonClick}>
                 <i className="pi pi-bars"></i>
@@ -30,17 +29,28 @@ const AppTopbar = (props) => {
             <ul className={topbarMenuClassName}>
                 {isProfilePopup && (
                     <li className={profileItemClassName}>
-                        <button className="p-link" onClick={(e) => props.onTopbarItemClick(e, 'profile')}>                        
-                            <img alt="babylon-layout" src="assets/layout/images/avatar.png" />                            
-                            <span className="topbar-item-name">Arlene Welch</span>                           
+                        <button className="p-link" onClick={(e) => props.onTopbarItemClick(e, 'profile')}>
+                            <img alt="babylon-layout" src="assets/layout/images/avatar.png" />
+                            <span className="topbar-item-name">Arlene Welch</span>
                         </button>
-                        
 
                         <ul className={classNames({ fadeInDown: !props.isMobile() })}>
                             <li role="menuitem">
                                 <button className="p-link">
                                     <i className="pi pi-user"></i>
                                     <span>Profile</span>
+                                </button>
+                            </li>
+                            <li role="menuitem">
+                                <button className="p-link">
+                                    <i className="pi pi-cog"></i>
+                                    <span>Settings</span>
+                                </button>
+                            </li>
+                            <li role="menuitem">
+                                <button className="p-link">
+                                    <i className="pi pi-envelope"></i>
+                                    <span>Message</span>
                                 </button>
                             </li>
                             <li role="menuitem">
@@ -52,10 +62,42 @@ const AppTopbar = (props) => {
                         </ul>
                     </li>
                 )}
-                
+                <li className={activeTopbarItemClassName('notifications')}>
+                    <button className="p-link" onClick={(e) => props.onTopbarItemClick(e, 'notifications')}>
+                        <i className="topbar-icon pi pi-calendar"></i>
+                        <span className="topbar-item-name">Notifications</span>
+                    </button>
+                    <ul className={classNames({ fadeInDown: !props.isMobile() })}>
+                        <li role="menuitem">
+                            <button className="p-link">
+                                <i className="pi pi-tags"></i>
+                                <span>Pending tasks</span>
+                                <span className="topbar-submenuitem-badge">6</span>
+                            </button>
+                        </li>
+                        <li role="menuitem">
+                            <button className="p-link">
+                                <i className="pi pi-calendar-plus"></i>
+                                <span>Meeting today at 3pm</span>
+                            </button>
+                        </li>
+                        <li role="menuitem">
+                            <button className="p-link">
+                                <i className="pi pi-download"></i>
+                                <span>Download</span>
+                            </button>
+                        </li>
+                        <li role="menuitem">
+                            <button className="p-link">
+                                <i className="pi pi-lock"></i>
+                                <span>Book flight</span>
+                            </button>
+                        </li>
+                    </ul>
+                </li>
                 <li className={activeTopbarItemClassName('messages')}>
                     <button className="p-link" onClick={(e) => props.onTopbarItemClick(e, 'messages')}>
-                        <i className="topbar-icon pi pi-bell"></i>
+                        <i className="topbar-icon pi pi-inbox"></i>
                         <span className="topbar-item-name">Messages</span>
                         <span className="topbar-badge">8</span>
                     </button>
@@ -88,6 +130,40 @@ const AppTopbar = (props) => {
                             <button className="topbar-message p-link">
                                 <img src="assets/layout/images/avatar.png" alt="babylon-layout" />
                                 <span>Out of office</span>
+                            </button>
+                        </li>
+                    </ul>
+                </li>
+                <li className={activeTopbarItemClassName('settings')}>
+                    <button className="p-link" onClick={(e) => props.onTopbarItemClick(e, 'settings')}>
+                        <i className="topbar-icon pi pi-cog"></i>
+                        <span className="topbar-item-name">Settings</span>
+                    </button>
+                    <ul className={classNames({ fadeInDown: !props.isMobile() })}>
+                        <li role="menuitem">
+                            <button className="p-link">
+                                <i className="pi pi-pencil"></i>
+                                <span>Change Theme</span>
+                                <span className="topbar-submenuitem-badge">4</span>
+                            </button>
+                        </li>
+                        <li role="menuitem">
+                            <button className="p-link">
+                                <i className="pi pi-star"></i>
+                                <span>Favorites</span>
+                            </button>
+                        </li>
+                        <li role="menuitem">
+                            <button className="p-link">
+                                <i className="pi pi-lock"></i>
+                                <span>Lock Screen</span>
+                                <span className="topbar-submenuitem-badge">2</span>
+                            </button>
+                        </li>
+                        <li role="menuitem">
+                            <button className="p-link">
+                                <i className="pi pi-image"></i>
+                                <span>Wallpaper</span>
                             </button>
                         </li>
                     </ul>
