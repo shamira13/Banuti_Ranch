@@ -12,6 +12,7 @@ import AppInlineProfile from './AppInlineProfile';
 
 import Dashboard from './pages/Dashboard';
 import Animals from './pages/Animals';
+import Breeds from './pages/Breeds';
 import Events from './pages/Events';
 import ViewAnimal from './pages/ViewAnimal';
 import PrimeReact from 'primereact/api';
@@ -56,13 +57,12 @@ const App = () => {
         { path: '/InformationBank', parent: 'InformationBank', label: 'Information Bank' },
         { path: '/Animals', parent: 'Animals', label: 'Animal Management' },
         { path: '/Events', parent: 'Events', label: 'Calendar&Schedule' },
-        { path: '/AnimalStages', parent: 'AnimalStages', label: 'Animal Stages' },
+        { path: '/AnimalStages', parent: 'AnimalStages', label: 'Animal Workflows' },
         { path: '/ViewStage', parent: 'ViewStage', label: 'Stages' },
         { path: '/ViewAnimal', parent: 'ViewAnimal', label: 'View Animal' },
         { path: '/AnimalChart', parent: 'AnimalChart', label: 'Animal Chart' },
         { path: '/LogOut', parent: 'LogOut', label: 'Log out' },
-        
-        //{ path: '/Users', parent: 'Users', label: 'Users' },
+        { path: '/Breeds', parent: 'Breeds', label: 'Animal Breeds' },
         // { path: '/Clients', parent: 'Clients', label: 'Clients' },
         // { path: '/Roles', parent: 'Roles', label: 'Roles' },
         // { path: '/MenuDemo', parent: 'Clients', label: 'View Client' },
@@ -85,14 +85,28 @@ const App = () => {
         {
             label: 'Information Bank',
             icon: 'pi pi-fw pi-bar',
-            items: [{ label: 'Information Bank', icon: 'pi pi-fw pi-home', to: '/InformationBank' },
-            { label: 'Animal Stages', icon: 'pi pi-fw pi-home', to: '/AnimalStages' },
-            { label: 'AnimalChart', icon: 'pi pi-fw pi-home', to: '/AnimalChart' }]
+            items: [{ label: 'Information Bank', icon: 'pi pi-fw pi-bars', to: '/InformationBank' },
+           
+            { label: 'AnimalChart', icon: 'pi pi-fw pi-bars', to: '/AnimalChart' },
+            
+        ]
+        },
+        {
+            label: 'Animal Management',
+            icon: 'pi pi-fw pi-home',
+            items: [{ label: 'Animals', icon: 'pi pi-fw pi-database', to: '/Animals' },
+            { label: 'Animal Workflows', icon: 'pi pi-fw pi-bars', to: '/AnimalStages' },
+            { label: 'Animal Breeds', icon: 'pi pi-fw pi-bars', to: '/Breeds' },]
+        },
+        {
+            label: 'Calendar',
+            icon: 'pi pi-fw pi-home',
+            items: [{ label: 'Events', icon: 'pi pi-fw pi-calendar', to: '/Events' },]
         },
         {
             label: 'LogOut',
             icon: 'pi pi-fw pi-bar',
-            items: [{ label: 'Log out', icon: 'pi pi-fw pi-home', to: '/Login' }]
+            items: [{ label: 'Log out', icon: 'pi pi-fw pi-sign-out', to: '/Login' }]
         }
         // {
         //     label: 'Accounts',
@@ -362,14 +376,13 @@ const App = () => {
                         <Route path="/Events" element={<Events />} />
                         <Route path="/LogOut" element={<LogOut />} />
                         <Route path="/AnimalChart" element={<AnimalChart />} />
-                       
-                    {/* <Route path="/Users" element={<Users />} />
-                        <Route path="/Clients" element={<Clients />} />
+                       <Route path="/Breeds" element={<Breeds />} />
+                        {/* <Route path="/Clients" element={<Clients />} />
                         <Route path="/Cases" element={<Cases />} />
                         <Route path="/SystemUsers" element={<SystemUsers />} />
                         <Route path="/Roles" element={<Roles />} />                       
                         <Route path="/menu/*" element={<MenuDemo />} /> 
-                        <Route path="/ViewCase" element={<ViewCase />} />                        */}
+                        <Route path="/ViewCase" element={<ViewCase />} />                        */} 
                     </Routes>
                 </div>
 

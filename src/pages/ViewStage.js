@@ -1,16 +1,22 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Card } from 'primereact/card';
 import { Button } from 'primereact/button';
 import { Fieldset } from 'primereact/fieldset';
 import { Link } from 'react-router-dom';
 import { Column } from 'primereact/column';
 import { DataTable } from 'primereact/datatable';
+import data from '../assets/flags/users.json';
 import { Dialog } from 'primereact/dialog';
+import { Dropdown } from 'primereact/dropdown';
 
 const ViewStage = () => {
 
     const [displayBasic, setDisplayBasic] = useState(false);
-
+    const [Item, setItem] = useState(null);
+    
+    const Items = [
+        { name: 'Male', code: 'Option 1' },
+        { name: 'Female', code: 'Option 2' },
+    ];
     return (
         <><div class="flex justify-content-end flex-wrap card-container green-container">
             <Button type="button" label="Back" className="mr-2 mb-2" style={{ backgroundColor: 'amber', marginLeft: '90%', marginBottom: '18%' }}></Button>
@@ -18,21 +24,21 @@ const ViewStage = () => {
             <div className="grid" style={{ backgroundColor: 'white', marginBottom: '2%' }}>
 
                 <div className="card">
-                    <Fieldset legend="Stages" >
+                    <Fieldset legend="Workflows" >
 
                         <div className="p-fluid formgrid grid">
                             <div className="field col-4">
-                                <label for="clientid">Animal Name</label>
+                                <label for="clientid">Animal Category</label>
                                 <input id="clientid" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
                             </div>
                             <div className="field col-12 md:col-4">
-                                <label for="clientname">Gender</label>
+                                <label for="clientname">Stages</label>
                                 <input id="clientname" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
                             </div>
-                            <div className="field col-4">
-                                <label for="location">Description</label>
-                                <input id="location" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
-                            </div>
+                            <div className="field col-12 md:col-4">
+                                    <label for="clientname">Gender</label>
+                                    <Dropdown id="state" value={Items} onChange={(e) => setItem(e.value)} options={Items} optionLabel="name" placeholder="Select One"></Dropdown>
+                                </div>
                         </div>
                         <div className='grid' style={{ justifyContent: 'flex-end' }}>
                             <div class="flex justify-content-end ">
@@ -64,7 +70,7 @@ const ViewStage = () => {
                                     <input id="clientname" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
                                 </div>
                                 <div className="field col-6">
-                                    <label for="location">Description</label>
+                                    <label for="location">Gender</label>
                                     <input id="location" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
                                 </div>
                             </div>
@@ -84,11 +90,14 @@ const ViewStage = () => {
             </div>
             <div className="card">
                     <Fieldset legend="Stage Details" >
-                    <DataTable  paginator rows={5} className="p-datatable-products">
+                    <DataTable value={data.data} paginator rows={5} className="p-datatable-products">
                         <Column field="id" header="No." style={{ flexGrow: 1, flexBasis: '160px' }} frozen></Column>
-                        <Column field="image" header="Stage Name" style={{ flexGrow: 1, flexBasis: '100px' }}></Column>
-                        <Column field="first_name" header="Lifespan" style={{ flexGrow: 1, flexBasis: '200px' }}></Column>
-                        <Column field="action" className='flex gap-2' header="Action" style={{ flexGrow: 1, flexBasis: '200px' }} body={() => <Link to={"/ViewStage"} style={{ color: 'green' }}>View</Link>}></Column>
+                        <Column field="stage_name" header="Stage Name" style={{ flexGrow: 1, flexBasis: '100px' }}></Column>
+                        <Column field="life_span" header="Lifespan" style={{ flexGrow: 1, flexBasis: '200px' }}></Column>
+                        <Column field="entry_condition" header="Entry Condition" style={{ flexGrow: 1, flexBasis: '200px' }}></Column>
+                        <Column field="exit_condition" header="Exit Condition" style={{ flexGrow: 1, flexBasis: '200px' }}></Column>
+                        
+                        <Column field="action" className='flex gap-2' header="Action" style={{ flexGrow: 1, flexBasis: '200px' }} body={() => <><Link to={"/ViewStage"} style={{ color: 'green' }}>Edit</Link><Link to={"/ViewStage"} style={{ color: 'green' }}>Delete</Link></>}></Column>
                     </DataTable>
                     </Fieldset>
                 </div></>

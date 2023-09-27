@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom';
 import data from '../assets/flags/systemusers.json';
 import { Link } from 'react-router-dom';
 import { confirmPopup } from 'primereact/confirmpopup';
+import ViewStage from './ViewStage';
+import { Dropdown } from 'primereact/dropdown';
 
 
 function AnimalStages() {
@@ -16,6 +18,12 @@ function AnimalStages() {
     const [checkboxValue, setCheckboxValue] = useState([]);
     const [displayConfirmation, setDisplayConfirmation] = useState(false);
     const navigate = useNavigate();
+    const [Item, setItem] = useState(null);
+
+    const Items = [
+        { name: 'Male', code: 'Option 1' },
+        { name: 'Female', code: 'Option 2' },
+    ];
 
     const onCheckboxChange = (e) => {
         let selectedValue = [...checkboxValue];
@@ -30,6 +38,7 @@ function AnimalStages() {
             <Button type="button" label="Yes" icon="pi pi-check" onClick={() => setDisplayConfirmation(false)} className="p-button-text" autoFocus />
         </>
     );
+
     const [visibleRight, setVisibleRight] = useState(false);
     const [dropdownItem, setDropdownItem] = useState(null);
     const dropdownItems = [
@@ -72,21 +81,21 @@ function AnimalStages() {
 
             </div>
             <div className="col-12 lg:col-6 xl:col-2" >
-                <Dialog header="New User" visible={displayBasic} style={{ width: '70vw' }} onHide={() => setDisplayBasic(false)}  >
+                <Dialog header="New Animal Category" visible={displayBasic} style={{ width: '50vw' }} onHide={() => setDisplayBasic(false)}  >
                     <div className="col-12">
                         <div className="card">
                             <div className="p-fluid formgrid grid">
                                 <div className="field col-4">
-                                    <label for="clientid">Animal Name</label>
+                                    <label for="clientid">Animal Category</label>
                                     <input id="clientid" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
                                 </div>
                                 <div className="field col-12 md:col-4">
                                     <label for="clientname">Gender</label>
-                                    <input id="clientname" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
+                                    <Dropdown id="state" value={Items} onChange={(e) => setItem(e.value)} options={Items} optionLabel="name" placeholder="Select One"></Dropdown>
                                 </div>
-                                <div className="field col-6">
-                                    <label for="location">Description</label>
-                                    <input id="location" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
+                                <div className="field col-12 md:col-4">
+                                    <label for="clientname">Stages</label>
+                                    <input id="clientname" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
                                 </div>
                             </div>
                         </div>
@@ -104,9 +113,9 @@ function AnimalStages() {
 
             <div className="col-12">
                 <div className="card">
-                <div class="flex justify-content-end flex-wrap card-container green-container">
-                    
-                   
+                    <div class="flex justify-content-end flex-wrap card-container green-container">
+
+
                         <div className="col-12 lg:col-6 xl:col-2" >
                             <Button type="button" label="Export" icon="pi pi-arrow-circle-up" onClick={() => { navigate("/AddUser") }} style={{ backgroundColor: "amber" }} />
                         </div>
@@ -114,12 +123,15 @@ function AnimalStages() {
                             <Button type="button" label="Add New" icon="pi pi-plus" onClick={() => setDisplayBasic(true)} style={{ backgroundColor: "deep purple" }} />
                         </div>
                     </div>
-                    <DataTable value={data} paginator rows={5} className="p-datatable-products">
-                        <Column field="id" header="No." style={{ flexGrow: 1, flexBasis: '160px' }} frozen></Column>
-                        <Column field="image" header="Animal Name" style={{ flexGrow: 1, flexBasis: '100px' }}></Column>
-                        <Column field="first_name" header="Gender" style={{ flexGrow: 1, flexBasis: '200px' }}></Column>
-                        <Column field="username" header="Stages" style={{ flexGrow: 1, flexBasis: '200px' }}></Column>
-                        <Column field="action" className='flex gap-2' header="Action" style={{ flexGrow: 1, flexBasis: '200px' }} body={() => <Link to={"/ViewStage"} style={{ color: 'green' }}>View</Link>}></Column>
+        
+                    <DataTable value={data} rowGroupMode="rowspan" groupRowsBy="animal_name"
+                        sortMode="single" sortField="animal_name" sortOrder={1} >
+                        <Column header="No." headerStyle={{ width: '3rem' }} body={(data, options) => options.rowIndex + 1}></Column>
+                        <Column field="animal_name" header="Animal Category" style={{ minWidth: '200px' }}></Column>
+                        <Column field="gender" header="Gender" style={{ minWidth: '150px' }}></Column>
+                        <Column field="stages" header="Stages" style={{ minWidth: '150px' }}></Column>
+                        <Column field="options" header="Actions" body={<><Link to={"/ViewStage"} style={{ color: 'green' }}>View</Link> </>} ></Column>
+                        
                     </DataTable>
                 </div>
             </div>
